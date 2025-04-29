@@ -8,7 +8,7 @@
   <title>Novage Care</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png"/>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
@@ -38,7 +38,7 @@
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
 						<a href="tel:+255629184849" >
-							<span>Call Now : +255-6291-84849 </span>
+							<span>Call Now : +255-7153-03510 </span>
 							<span class="h4"></span>
 						</a>
 					</div>
@@ -49,7 +49,7 @@
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
 		 	 <a class="navbar-brand" href="index.html">
-			  	{{-- <img src="images/logo.png" alt="" class="img-fluid"> --}}
+			  	<img src="images/logo.png" alt="" class="navbar-logo">
 			  </a>
 
 		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,14 +81,14 @@
 					</ul>
 			  	</li> --}}
 
-			   <li class="nav-item dropdown">
+			   {{-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown05">
 						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog with Sidebar</a></li>
 
 						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog Single</a></li>
 					</ul>
-			  	</li>
+			  	</li> --}}
 			   <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
 			</ul>
 		  </div>
@@ -166,7 +166,7 @@
 		</div>
 	</div>
 </section>
-<section class="section awards">
+{{-- <section class="section awards">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-4">
@@ -209,28 +209,36 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 
 <section class="section team">
 	<div class="container justify-center">
 		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				<div class="section-title text-center">
-					<h2 class="mb-4">Meet Our Team</h2>
+					<h2 class="mb-4">@lang('messages.meet_our_team')</h2>
 					<div class="divider mx-auto my-4"></div>
 					<p>Our team of compassionate experts—from nutritionists to counselors—are dedicated to guiding older adults toward healthier, more fulfilling lives every day.</p>
 				</div>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-lg-3 col-md-6 col-sm-6">
+		<div class="row justify-content-center">
+			<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
 				<div class="team-block mb-5 mb-lg-0">
-					<img src="images/team/.jpg" alt="" class="img-fluid w-100">
+					<img src="images/team/1.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Felistar William</a></h4>
+						<h4 class="mt-4 mb-0"><a href="">Felistar William</a></h4>
 						<p>CEO, Medical Doctor</p>
+
+                        <!-- Bio Toggle Button -->
+						<button class="btn btn-info btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioFelistar" aria-expanded="false" aria-controls="bioFelistar">Read Bio</button>
+
+						<!-- Bio Content -->
+						<div class="collapse mt-3" id="bioFelistar">
+							<p>Felistar William is a medical doctor and public health specialist, and the Founder and CEO of Novage Care. She leads the company with a deep commitment to advancing eldercare through innovative, person-centered solutions. With a strong background in clinical care and health systems, Felistar is dedicated to improving the quality of life for older adults by integrating wellness, prevention, and compassionate support into everyday care. Through Novage Care, she is shaping a future where aging is met with dignity, grace, and fulfillment.</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -242,6 +250,14 @@
 					<div class="content">
 						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Lilian Valerian</a></h4>
 						<p>COO, Medical Doctor</p>
+
+                        <!-- Bio Toggle Button -->
+						<button class="btn btn-info btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioLilian" aria-expanded="false" aria-controls="bioLilian">Read Bio</button>
+
+						<!-- Bio Content -->
+						<div class="collapse mt-3" id="bioLilian">
+							<p>Lilian Valerian is the Chief Operating Officer and a Medical Doctor with expertise in healthcare management and organizational leadership. She is committed to enhancing the operational efficiency of eldercare facilities and services.</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -253,6 +269,14 @@
 					<div class="content">
 						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Melvin Semgoja</a></h4>
 						<p>CTO, Software Developer</p>
+
+                        <!-- Bio Toggle Button -->
+						<button class="btn btn-info btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioMelvin" aria-expanded="false" aria-controls="bioMelvin">Read Bio</button>
+
+						<!-- Bio Content -->
+						<div class="collapse mt-3" id="bioMelvin">
+							<p>Melvin Semgoja is the Chief Technology Officer and a Software Developer with a focus on creating innovative solutions for the healthcare industry. He is passionate about utilizing technology to improve the lives of older adults.</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -338,7 +362,7 @@
 			<div class="col-lg-4 mr-auto col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
 					<div class="logo mb-4">
-						{{-- <img src="images/logo.png" alt="" class="img-fluid"> --}}
+						<img src="images/logo.png" alt="" class="navbar-logo">
 					</div>
 					<p>At Novage Care, we provide culturally grounded, holistic wellness services—supporting physical vitality, emotional balance, and independent living for adults aged 55 and above.</p>
 
@@ -393,7 +417,7 @@
 							<i class="icofont-email mr-3"></i>
 							<span class="h6 mb-0">Support Available for 24/7</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+255-6291-84849">Support@novagecare.com</a></h4>
+						<h4 class="mt-2"><a href="tel:+255-7153-03510">Support@novagecare.com</a></h4>
 					</div>
 
 					<div class="footer-contact-block">
@@ -401,7 +425,7 @@
 							<i class="icofont-support mr-3"></i>
 							<span class="h6 mb-0">Mon to Sun : 08:30 - 18:00</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+255629184849">+255-6291-84849</a></h4>
+						<h4 class="mt-2"><a href="tel:+255629184849">+255-7153-03510</a></h4>
 					</div>
 				</div>
 			</div>
@@ -461,6 +485,10 @@
 
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
+
+    <!-- Bootstrap JS (at the bottom of the body for optimal page load performance) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
   </body>
   </html>

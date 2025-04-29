@@ -8,7 +8,7 @@
   <title>Novage Care</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png"/>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
@@ -38,7 +38,7 @@
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
 						<a href="tel:+255629184849" >
-							<span>Call Now : +255-6291-84849 </span>
+							<span>Call Now : +255-7153-03510 </span>
 							<span class="h4"></span>
 						</a>
 					</div>
@@ -49,7 +49,7 @@
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
 		 	 <a class="navbar-brand" href="index.html">
-			  	{{-- <img src="images/logo.png" alt="" class="img-fluid"> --}}
+			  	<img src="images/logo.png" alt="" class="navbar-logo">
 			  </a>
 
 		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,14 +81,14 @@
 					</ul>
 			  	</li> --}}
 
-			   <li class="nav-item dropdown">
+			   {{-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown05">
 						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog with Sidebar</a></li>
 
 						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog Single</a></li>
 					</ul>
-			  	</li>
+			  	</li> --}}
 			   <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
 			</ul>
 		  </div>
@@ -206,7 +206,7 @@
 			<div class="col-lg-4 mr-auto col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
 					<div class="logo mb-4">
-						{{-- <img src="images/logo.png" alt="" class="img-fluid"> --}}
+						<img src="images/logo.png" alt="" class="navbar-logo">
 					</div>
 					<p>At Novage Care, we provide culturally grounded, holistic wellness services—supporting physical vitality, emotional balance, and independent living for adults aged 55 and above.</p>
 
@@ -261,7 +261,7 @@
 							<i class="icofont-email mr-3"></i>
 							<span class="h6 mb-0">Support Available for 24/7</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+255-6291-84849">Support@novagecare.com</a></h4>
+						<h4 class="mt-2"><a href="tel:+255-7153-03510">Support@novagecare.com</a></h4>
 					</div>
 
 					<div class="footer-contact-block">
@@ -269,7 +269,7 @@
 							<i class="icofont-support mr-3"></i>
 							<span class="h6 mb-0">Mon to Sun : 08:30 - 18:00</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+255629184849">+255-6291-84849</a></h4>
+						<h4 class="mt-2"><a href="tel:+255629184849">+255-7153-03510</a></h4>
 					</div>
 				</div>
 			</div>

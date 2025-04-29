@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Middleware\SetLocale;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +21,15 @@ Route::get('/blog', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'sw'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

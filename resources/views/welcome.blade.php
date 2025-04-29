@@ -8,7 +8,7 @@
   <title>Novage Care</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png"/>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
@@ -38,7 +38,7 @@
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
 						<a href="tel:+255629184849" >
-							<span>Call Now : +255-6291-84849 </span>
+							<span>Call Now : +255-7153-03510 / +255-7464-86390</span>
 							<span class="h4"></span>
 						</a>
 					</div>
@@ -48,8 +48,8 @@
 	</div>
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
-		 	 <a class="navbar-brand" href="index.html">
-			  	{{-- <img src="images/logo.png" alt="" class="img-fluid"> --}}
+		 	 <a class="navbar-brand" href="{{ url('/')}}">
+			  	<img src="images/logo.png" alt="" class="navbar-logo">
 			  </a>
 
 		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="{{ url('/') }}">Home</a>
+				<a class="nav-link" href="{{ url('/') }}">@lang('messages.home')</a>
 			  </li>
 			   <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
 			    <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">Services</a></li>
@@ -81,15 +81,25 @@
 					</ul>
 			  	</li> --}}
 
-			   <li class="nav-item dropdown">
+			   {{-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown05">
 						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog with Sidebar</a></li>
 
 						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog Single</a></li>
 					</ul>
-			  	</li>
+			  	</li> --}}
 			   <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
+
+               <div class="language-switcher">
+                <a href="{{ route('lang.switch', 'en') }}">
+                    <img src="/flags/en.png" alt="English" style="width:24px;">
+                </a>
+                <a href="{{ route('lang.switch', 'sw') }}">
+                    <img src="/flags/sw.png" alt="Swahili" style="width:24px;">
+                </a>
+            </div>
+
 			</ul>
 		  </div>
 		</div>
@@ -106,8 +116,8 @@
 			<div class="col-lg-6 col-md-12 col-xl-7">
 				<div class="block">
 					<div class="divider mb-3"></div>
-					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span><br></br>
-                    <h1 class="mb-3 mt-3">Nurturing Healthy Aging</h1>
+					{{-- <span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span><br></br> --}}
+                    <h1 class="mb-3 mt-3">Redifining Aging with care</h1>
 
 					<p class="mb-4 pr-5">Empowering older adults to thrive—body, mind, and spirit—through compassionate care and holistic wellness.</p>
 					<div class="btn-container ">
@@ -130,7 +140,7 @@
 						<span>24 Hours Service</span>
 						<h4 class="mb-3">Online Appoinment</h4>
 						<p class="mb-4">Get ALL time support for emergency.</p>
-						<a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
+						{{-- <a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a> --}}
 					</div>
 
 					<div class="feature-item mb-5 mb-lg-0">
@@ -151,7 +161,7 @@
 							<i class="icofont-support"></i>
 						</div>
 						<span>Emegency Cases</span>
-						<h4 class="mb-3">+255-6291-84849</h4>
+						<h4 class="mb-3">+255-7153-03510</h4>
 						<p>Get ALL time support for emergency.Get Conneted with us for any urgency .</p>
 					</div>
 				</div>
@@ -178,7 +188,7 @@
 			<div class="col-lg-4">
 				<div class="about-content pl-4 mt-4 mt-lg-0">
                     <h2 class="title-color">Personalized Care & Healthy Aging</h2>
-                    <p class="mt-4 mb-5">Aging comes with both visible and silent struggles managing chronic illnesses, lifestyle changes, loss of routine, or simply feeling unseen. Yet behind every change, we see the strength. Behind every wrinkle, we see resilience and in every quiet moment, we recognize dignity in each step taken with intention. Because aging isn’t just a process, it’s a testament to life lived. At Novage Care, we redefine aging and wellness. Through personalized care, science-backed support, and companionship that honors every chapter, we stand with you not just as caregivers, but as allies in vitality.</p>                    
+                    <p class="mt-4 mb-5">Aging comes with both visible and silent struggles managing chronic illnesses, lifestyle changes, loss of routine, or simply feeling unseen. Yet behind every change, we see the strength. Behind every wrinkle, we see resilience and in every quiet moment, we recognize dignity in each step taken with intention. Because aging isn’t just a process, it’s a testament to life lived....</p>
 
 					<a href="{{ url('/about')}}" class="btn btn-main-2 btn-round-full btn-icon">About Us<i class="icofont-simple-right ml-3"></i></a>
 				</div>
@@ -310,6 +320,11 @@
         </div>
     </div>
 </section>
+@section('success')
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endsection
 
 <section class="section appoinment">
 	<div class="container">
@@ -318,7 +333,7 @@
 				<div class="appoinment-content">
 					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
 					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+255629184849</h2>
+						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+255715303510</h2>
 					</div>
 				</div>
 			</div>
@@ -327,11 +342,22 @@
 					<h2 class="mb-2 title-color">Book a Wellness Consultation</h2>
                     <p class="mb-4">Schedule a virtual session with our wellness experts—whether for nutrition guidance, therapeutic movement, or emotional support—tailored to your personal aging journey.</p>
 
-					     <form id="#" class="appoinment-form" method="post" action="#">
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                    @endif
+
+
+                    <form method="POST" action="{{ route('appointments.store') }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select name="service" class="form-control" >
                                     <option selected disabled>Choose Service</option>
                                     <option>Nutrition Coaching</option>
                                     <option>Therapeutic Movement</option>
@@ -340,56 +366,56 @@
                                     <option>Wellness Tier Guidance</option>
                                     <option>Subscription Support</option>
                                 </select>
-                            </div>  
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="selectDoctor">
+                                <select name="specialist" class="form-control">
                                     <option selected disabled>Select Specialist</option>
                                     <option>Nutritionist</option>
                                     <option>Therapist / Counselor</option>
                                     <option>Movement Coach</option>
                                     <option>Geriatric Care Expert</option>
                                     <option>General Wellness Consultant</option>
-                                </select>                                
+                                </select>
                             </div>
                         </div>
 
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                <input name="date"  type="date" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="time" id="time" type="text" class="form-control" placeholder="Time">
+                                <input name="time" type="time" class="form-control" placeholder="Time">
                             </div>
                         </div>
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
+                                <input name="name" type="text" class="form-control" placeholder="Full Name">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
+                                <input name="phone" type="Number" class="form-control" placeholder="Phone Number">
                             </div>
                         </div>
                     </div>
                     <div class="form-group-2 mb-4">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+                        <textarea name="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
                     </div>
 
-                    <a class="btn btn-main btn-round-full" href="" >Make Appoinment <i class="icofont-simple-right ml-2  "></i></a>
+                    <button type="submit" >Book Now <i class="icofont-simple-right ml-2  "></i></button>
                 </form>
             </div>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="section testimonial-2 gray-bg">
+{{-- <section class="section testimonial-2 gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
@@ -400,7 +426,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 
 	{{-- <div class="container">
 		<div class="row align-items-center">
@@ -486,7 +512,7 @@
 		</div>
 	</div> --}}
 </section>
-<section class="section clients">
+{{-- <section class="section clients">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
@@ -553,7 +579,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 <!-- footer Start -->
 <footer class="footer section gray-bg">
 	<div class="container">
@@ -561,7 +587,7 @@
 			<div class="col-lg-4 mr-auto col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
 					<div class="logo mb-4">
-						{{-- <img src="images/logo.png" alt="" class="img-fluid"> --}}
+						<img src="images/logo.png" alt="" class="navbar-logo">
 					</div>
 					<p>At Novage Care, we provide culturally grounded, holistic wellness services—supporting physical vitality, emotional balance, and independent living for adults aged 55 and above.</p>
 
@@ -571,7 +597,7 @@
 						<li class="list-inline-item"><a href=""><i class="icofont-linkedin"></i></a></li>
                         <li class="list-inline-item"><a href=""><i class="icofont-instagram"></i></a></li>
                         <li class="list-inline-item"><a href=""><i class="icofont-youtube-play"></i></a></li>
-                        <li class="list-inline-item"><a href=""><i class="icofont-whatsapp"></i></a></li>
+                        <li class="list-inline-item"><a href="https://wa.me/+255715303510" target="_blank"><i class="icofont-whatsapp"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -616,7 +642,7 @@
 							<i class="icofont-email mr-3"></i>
 							<span class="h6 mb-0">Support Available for 24/7</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+255-6291-84849">Support@novagecare.com</a></h4>
+						<h4 class="mt-2"><a href="mailto:support@novagecare.com">Support@novagecare.com</a></h4>
 					</div>
 
 					<div class="footer-contact-block">
@@ -624,7 +650,7 @@
 							<i class="icofont-support mr-3"></i>
 							<span class="h6 mb-0">Mon to Sun : 08:30 - 18:00</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+255629184849">+255-6291-84849</a></h4>
+						<h4 class="mt-2"><a href="tel:+255715303510">+255-7153-03510</a></h4>
 					</div>
 				</div>
 			</div>
@@ -634,7 +660,7 @@
 			<div class="row align-items-center justify-content-between">
 				<div class="col-lg-6">
 					<div class="copyright">
-						&copy; Copyright Reserved to <span class="text-color">NovageCare</span> 
+						&copy; Copyright Reserved to <span class="text-color">NovageCare</span>
                         {{-- by <a href="https://themefisher.com/" target="_blank">Themefisher</a> --}}
 					</div>
 				</div>
@@ -642,7 +668,7 @@
 					<div class="subscribe-form text-lg-right mt-5 mt-lg-0">
 						<form action="#" class="subscribe">
 							<input type="text" class="form-control" placeholder="Your Email address">
-							<a href="#" class="btn btn-main-2 btn-round-full">Subscribe</a>
+							<a type="submit" href="mailto:support@novagecare.com" class="btn btn-main-2 btn-round-full">Subscribe</a>
 						</form>
 					</div>
 				</div>
