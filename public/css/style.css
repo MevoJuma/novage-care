@@ -503,7 +503,7 @@ a:focus {
     position: relative;
     overflow: hidden;
     background: #fff;
-    background: url("../images/bg/closeup-support-hands.jpg") no-repeat;
+    background: url("../images/bg/banner0.jpg") no-repeat;
     background-size: cover;
     min-height: 550px;
 }
@@ -633,6 +633,28 @@ a:focus {
 .client-thumb {
     text-align: center;
 }
+
+/* .section.about-page {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+}
+
+.section.about-page h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.section.about-page p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+hr {
+    border-top: 3px solid #066d44;
+    width: 60px;
+    margin-top: 1rem;
+} */
+
 
 .features {
     margin-top: -70px;

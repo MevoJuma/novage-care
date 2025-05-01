@@ -29,6 +29,8 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('lang.switch');
 
+Route::view('/faq', 'faq')->name('faq');
+
 Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
 Route::get('/dashboard', function () {

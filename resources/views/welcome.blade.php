@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+255629184849" >
+						<a href="tel:+255715303510" >
 							<span>Call Now : +255-7153-03510 / +255-7464-86390</span>
 							<span class="h4"></span>
 						</a>
@@ -59,7 +59,7 @@
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="{{ url('/') }}">@lang('messages.home')</a>
+				<a class="nav-link" href="{{ url('/') }}">Home</a>
 			  </li>
 			   <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
 			    <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">Services</a></li>
@@ -90,15 +90,16 @@
 					</ul>
 			  	</li> --}}
 			   <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
+                {{-- <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Login</a></li> --}}
 
-               <div class="language-switcher">
-                <a href="{{ route('lang.switch', 'en') }}">
-                    <img src="/flags/en.png" alt="English" style="width:24px;">
-                </a>
-                <a href="{{ route('lang.switch', 'sw') }}">
-                    <img src="/flags/sw.png" alt="Swahili" style="width:24px;">
-                </a>
-            </div>
+                {{-- <div class="language-switcher">
+                    <a href="{{ route('lang.switch', 'en') }}">
+                        <img src="/flags/en.png" alt="English" style="width:24px;">
+                    </a>
+                    <a href="{{ route('lang.switch', 'sw') }}">
+                        <img src="/flags/sw.png" alt="Swahili" style="width:24px;">
+                    </a>
+                </div> --}}
 
 			</ul>
 		  </div>
@@ -125,6 +126,12 @@
 					</div>
 				</div>
 			</div>
+
+            <!-- Image Column -->
+			{{-- <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 order-1 order-lg-2 text-center">
+				<img src="{{ asset('images/.png') }}" alt="Elderly care illustration" class="img-fluid w-75">
+			</div> --}}
+
 		</div>
 	</div>
 </section>
@@ -274,10 +281,10 @@
                 <div class="service-item mb-4">
                     <div class="icon d-flex align-items-center">
                         <i class="icofont-brain-alt text-lg"></i>
-                        <h4 class="mt-3 mb-3">Mindfulness & Counseling</h4>
+                        <h4 class="mt-3 mb-3">Mindfulness</h4>
                     </div>
                     <div class="content">
-                        <p class="mb-4">Support emotional balance and cognitive well-being through guided mindfulness, breathing exercises, and professional counseling.</p>
+                        <p class="mb-4">Support emotional balance and cognitive well-being through guided mindfulness, breathing exercises, and counseling.</p>
                     </div>
                 </div>
             </div>
@@ -298,7 +305,7 @@
                 <div class="service-item mb-4">
                     <div class="icon d-flex align-items-center">
                         <i class="icofont-chart-growth text-lg"></i>
-                        <h4 class="mt-3 mb-3">Personalized Wellness Tiers</h4>
+                        <h4 class="mt-3 mb-3">Personalized Wellness</h4>
                     </div>
                     <div class="content">
                         <p class="mb-4">Wellness programs tailored to individual needs—whether foundational, enhanced, or independent—to support every stage of aging.</p>
@@ -313,7 +320,7 @@
                         <h4 class="mt-3 mb-3">Flexible Subscriptions</h4>
                     </div>
                     <div class="content">
-                        <p class="mb-4">Choose from affordable, adaptable subscription packages that make holistic wellness accessible to all.</p>
+                        <p class="mb-4">Choose from affordable, adaptable subscription packages that make holistic wellness accessible to all in your journey to healthy aging.</p>
                     </div>
                 </div>
             </div>
@@ -351,13 +358,22 @@
                         </div>
                     @endif
 
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <form method="POST" action="{{ route('appointments.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <select name="service" class="form-control" >
+                                <select name="service" value="{{ old('service') }}" class="form-control" >
                                     <option selected disabled>Choose Service</option>
                                     <option>Nutrition Coaching</option>
                                     <option>Therapeutic Movement</option>
@@ -370,7 +386,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select name="specialist" class="form-control">
+                                <select name="specialist" value="{{ old('specialist') }}" class="form-control">
                                     <option selected disabled>Select Specialist</option>
                                     <option>Nutritionist</option>
                                     <option>Therapist / Counselor</option>
@@ -383,32 +399,32 @@
 
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="date"  type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                <input id="appointmentDate" name="date" value="{{ old('date') }}" type="date" class="form-control" placeholder="dd/mm/yyyy" min="">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="time" type="time" class="form-control" placeholder="Time">
+                                <input name="time" value="{{ old('time') }}" type="time" class="form-control" placeholder="Time">
                             </div>
                         </div>
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="name" type="text" class="form-control" placeholder="Full Name">
+                                <input name="name" value="{{ old('name') }}" type="text" class="form-control" placeholder="Full Name">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" type="Number" class="form-control" placeholder="Phone Number">
+                                <input name="phone" value="{{ old('phone') }}" type="Number" class="form-control" placeholder="Phone Number">
                             </div>
                         </div>
                     </div>
                     <div class="form-group-2 mb-4">
-                        <textarea name="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+                        <textarea name="message" value="{{ old('message') }}" class="form-control" rows="6" placeholder="Your Message"></textarea>
                     </div>
 
-                    <button type="submit" >Book Now <i class="icofont-simple-right ml-2  "></i></button>
+                    <button type="submit" class="btn btn-main btn-round-full" >Book Now <i class="icofont-simple-right ml-2  "></i></button>
                 </form>
             </div>
 			</div>
@@ -608,11 +624,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Novage Nutrition </a></li>
-						<li><a href="#">Novage Move</a></li>
-						<li><a href="#">Novage Wellness</a></li>
-						<li><a href="#">Novage Connect</a></li>
-						<li><a href="#">Novage Mindfullness & Counseling</a></li>
+						<li><a href="{{ url('/service') }}">Novage Nutrition </a></li>
+						<li><a href="{{ url('/service') }}">Novage Move</a></li>
+						<li><a href="{{ url('/service') }}">Novage Wellness</a></li>
+						<li><a href="{{ url('/service') }}">Novage Connect</a></li>
+						<li><a href="{{ url('/service') }}">Novage Mindfullness & Counseling</a></li>
 					</ul>
 				</div>
 			</div>
@@ -623,11 +639,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Company Support </a></li>
-						<li><a href="#">FAQuestions</a></li>
-						<li><a href="#">Company Licence</a></li>
+						<li><a href="">Terms & Conditions</a></li>
+						<li><a href="">Privacy Policy</a></li>
+						<li><a href="">Company Support </a></li>
+						<li><a href="{{ url('/faq') }}">FAQuestions</a></li>
+						<li><a href="">Company Licence</a></li>
 					</ul>
 				</div>
 			</div>
@@ -661,7 +677,6 @@
 				<div class="col-lg-6">
 					<div class="copyright">
 						&copy; Copyright Reserved to <span class="text-color">NovageCare</span>
-                        {{-- by <a href="https://themefisher.com/" target="_blank">Themefisher</a> --}}
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -711,6 +726,16 @@
 
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
+
+
+    {{-- Date Validity --}}
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appointmentDate').setAttribute('min', today);
+    });
+    </script>
+
 
   </body>
   </html>

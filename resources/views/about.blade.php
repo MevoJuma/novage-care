@@ -37,8 +37,8 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+255629184849" >
-							<span>Call Now : +255-7153-03510 </span>
+						<a href="tel:+255715303510" >
+							<span>Call Now : +255-7153-03510 / +255-7464-86390</span>
 							<span class="h4"></span>
 						</a>
 					</div>
@@ -118,7 +118,7 @@
   </div>
 </section>
 
-<section class="section about-page">
+{{-- <section class="section about-page">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
@@ -126,13 +126,36 @@
 			</div>
 			<div class="col-lg-8">
 				<p>Aging comes with both visible and silent struggles managing chronic illnesses, lifestyle changes, loss of routine, or simply feeling unseen. Yet behind every change, we see the strength. Behind every wrinkle, we see resilience and in every quiet moment, we recognize dignity in each step taken with intention. Because aging isn’t just a process, it’s a testament to life lived. At Novage Care, we redefine aging and wellness. Through personalized care, science-backed support, and companionship that honors every chapter, we stand with you not just as caregivers, but as allies in vitality.</p>
-				{{-- <img src="images/about/sign.png" alt="" class="img-fluid"> --}}
 			</div>
 		</div>
 	</div>
+</section> --}}
+
+<section class="section about-page bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h2 class="title-color">
+                    Personal Care for Your Healthy Living
+                </h2>
+                {{-- <hr class="mt-3 mb-0" style="border-top: 3px solid #066d44; width: 60px;"> --}}
+            </div>
+            <div class="col-lg-8">
+                <p class="">
+                    Aging comes with both visible and silent struggles—managing chronic illnesses, lifestyle changes, loss of routine, or simply feeling unseen.
+                    Yet behind every change, we see the strength. Behind every wrinkle, we see resilience. And in every quiet moment, we recognize the dignity in each step taken with intention.
+                </p>
+                <p class="">
+                    Because aging isn’t just a process, it’s a testament to a life well-lived. At <strong>Novage Care</strong>, we redefine aging and wellness—offering personalized care, science-backed support, and heartfelt companionship.
+                    We stand not just as caregivers, but as trusted allies in your journey toward lasting vitality.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="fetaure-page ">
+
+{{-- <section class="fetaure-page ">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-6">
@@ -165,7 +188,62 @@
 			</div>
 		</div>
 	</div>
+</section> --}}
+
+<section class="section about-page">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="title-color">Who We Are</h2>
+            <div class="divider mx-auto my-3"></div>
+            <p class="lead">Discover our purpose, values, and the goals that drive us at Novage Care. We are committed to providing exceptional care that nurtures the physical and mental well-being of seniors, creating a brighter future for those who matter most.</p>
+        </div>
+
+        <div class="row">
+            <!-- Mission -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-0 text-center p-3">
+                    <div class="mb-3">
+                        <i class="icofont-heart-beat-alt" style="font-size: 40px; color: #066d44;"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #066d44;">Our Mission</h4>
+                        <p class="card-text">At Novage Care, we are committed to enhancing the quality of life for older adults through personalized, culturally grounded wellness services. Our mission is to empower individuals aged 55 and above to live healthier, more fulfilling lives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-0 text-center p-3">
+                    <div class="mb-3">
+                        <i class="icofont-eye-alt" style="font-size: 40px; color: #066d44;"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #066d44;">Our Vision</h4>
+                        <p class="card-text">We envision a world where aging is celebrated, and older adults are empowered to thrive through innovative wellness solutions that promote independence, dignity, and joy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objectives -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-0 text-center p-3">
+                    <div class="mb-3">
+                        <i class="icofont-checked" style="font-size: 40px; color: #066d44;"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #066d44;">Our Objectives</h4>
+                        <p class="card-text">We aim to deliver inclusive wellness programs, foster healthy aging through education, support independence, and expand access to culturally aligned eldercare services across communities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+
+
+
 {{-- <section class="section awards">
 	<div class="container">
 		<div class="row align-items-center">
@@ -216,7 +294,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				<div class="section-title text-center">
-					<h2 class="mb-4">@lang('messages.meet_our_team')</h2>
+					<h2 class="mb-4">Meet Our Team</h2>
 					<div class="divider mx-auto my-4"></div>
 					<p>Our team of compassionate experts—from nutritionists to counselors—are dedicated to guiding older adults toward healthier, more fulfilling lives every day.</p>
 				</div>
@@ -233,7 +311,7 @@
 						<p>CEO, Medical Doctor</p>
 
                         <!-- Bio Toggle Button -->
-						<button class="btn btn-info btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioFelistar" aria-expanded="false" aria-controls="bioFelistar">Read Bio</button>
+						<button class="btn btn-main btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioFelistar" aria-expanded="false" aria-controls="bioFelistar">Read Bio</button>
 
 						<!-- Bio Content -->
 						<div class="collapse mt-3" id="bioFelistar">
@@ -245,18 +323,18 @@
 
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="team-block mb-5 mb-lg-0">
-					<img src="images/team/.jpg" alt="" class="img-fluid w-100">
+					<img src="images/team/2.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
 						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Lilian Valerian</a></h4>
 						<p>COO, Medical Doctor</p>
 
                         <!-- Bio Toggle Button -->
-						<button class="btn btn-info btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioLilian" aria-expanded="false" aria-controls="bioLilian">Read Bio</button>
+						<button class="btn btn-main btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioLilian" aria-expanded="false" aria-controls="bioLilian">Read Bio</button>
 
 						<!-- Bio Content -->
 						<div class="collapse mt-3" id="bioLilian">
-							<p>Lilian Valerian is the Chief Operating Officer and a Medical Doctor with expertise in healthcare management and organizational leadership. She is committed to enhancing the operational efficiency of eldercare facilities and services.</p>
+							<p>Dr. Lilian Valerian is a medical doctor and wellness advocate with a strong background in nutritional care and holistic health. As Co-founder and COO of Novage Care, she is passionate about reimagining elder care to focus on dignity, vitality, and connection. Drawing from her experience in clinical practice, corporate wellness, and mental health advocacy, Dr. Lilian champions accessible, compassionate care that supports both body and mind. Her vision is to make aging a vibrant, empowered stage of life through personalized, community-centered wellness solutions.</p>
 						</div>
 					</div>
 				</div>
@@ -264,18 +342,18 @@
 
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="team-block mb-5 mb-lg-0">
-					<img src="images/team/.jpg" alt="" class="img-fluid w-100">
+					<img src="images/team/3oo.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
 						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Melvin Semgoja</a></h4>
 						<p>CTO, Software Developer</p>
 
                         <!-- Bio Toggle Button -->
-						<button class="btn btn-info btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioMelvin" aria-expanded="false" aria-controls="bioMelvin">Read Bio</button>
+						<button class="btn btn-main btn-sm mt-3" data-bs-toggle="collapse" data-bs-target="#bioMelvin" aria-expanded="false" aria-controls="bioMelvin">Read Bio</button>
 
 						<!-- Bio Content -->
 						<div class="collapse mt-3" id="bioMelvin">
-							<p>Melvin Semgoja is the Chief Technology Officer and a Software Developer with a focus on creating innovative solutions for the healthcare industry. He is passionate about utilizing technology to improve the lives of older adults.</p>
+							<p>Melvin Semgoja is the CTO and lead software developer at Novage Care, dedicated to building innovative digital solutions that enhance elder care. With a passion for leveraging technology to improve the lives of older adults, Melvin plays a key role in shaping user-centered platforms that support wellness, accessibility, and personalized care. His work ensures that Novage Care stays at the forefront of tech-driven, compassionate healthcare for aging communities.</p>
 						</div>
 					</div>
 				</div>
@@ -284,7 +362,7 @@
 	</div>
 </section>
 
-<section class="section testimonial">
+{{-- <section class="section testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 offset-lg-6">
@@ -354,7 +432,9 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
+
+
 <!-- footer Start -->
 <footer class="footer section gray-bg">
 	<div class="container">
@@ -383,11 +463,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Novage Nutrition </a></li>
-						<li><a href="#">Novage Move</a></li>
-						<li><a href="#">Novage Wellness</a></li>
-						<li><a href="#">Novage Connect</a></li>
-						<li><a href="#">Novage Mindfullness & Counseling</a></li>
+						<li><a href="{{ url('/service') }}">Novage Nutrition </a></li>
+						<li><a href="{{ url('/service') }}">Novage Move</a></li>
+						<li><a href="{{ url('/service') }}">Novage Wellness</a></li>
+						<li><a href="{{ url('/service') }}">Novage Connect</a></li>
+						<li><a href="{{ url('/service') }}">Novage Mindfullness & Counseling</a></li>
 					</ul>
 				</div>
 			</div>
@@ -398,11 +478,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Company Support </a></li>
-						<li><a href="#">FAQuestions</a></li>
-						<li><a href="#">Company Licence</a></li>
+						<li><a href="">Terms & Conditions</a></li>
+						<li><a href="">Privacy Policy</a></li>
+						<li><a href="">Company Support </a></li>
+						<li><a href="{{ url('/faq') }}">FAQuestions</a></li>
+						<li><a href="">Company Licence</a></li>
 					</ul>
 				</div>
 			</div>

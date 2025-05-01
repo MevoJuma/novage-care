@@ -37,8 +37,8 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+255629184849" >
-							<span>Call Now : +255-7153-03510 </span>
+						<a href="tel:+255715303510" >
+							<span>Call Now : +255-7153-03510 / +255-7464-86390</span>
 							<span class="h4"></span>
 						</a>
 					</div>
@@ -133,7 +133,7 @@
                 <div class="contact-block mb-4 mb-lg-0">
                     <i class="icofont-support-faq"></i>
                     <h5>Email Us</h5>
-                     contact@novagecare.com
+                     support@novagecare.com
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-md-6">
@@ -160,7 +160,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <form id="contact-form" class="contact__form " method="post" action="mail.php">
+                <form id="contact-form" class="contact__form " method="POST" action="mail.php">
                  <!-- form message -->
                     <div class="row">
                         <div class="col-12">
@@ -241,11 +241,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Novage Nutrition </a></li>
-						<li><a href="#">Novage Move</a></li>
-						<li><a href="#">Novage Wellness</a></li>
-						<li><a href="#">Novage Connect</a></li>
-						<li><a href="#">Novage Mindfullness & Counseling</a></li>
+						<li><a href="{{ url('/service') }}">Novage Nutrition </a></li>
+						<li><a href="{{ url('/service') }}">Novage Move</a></li>
+						<li><a href="{{ url('/service') }}">Novage Wellness</a></li>
+						<li><a href="{{ url('/service') }}">Novage Connect</a></li>
+						<li><a href="{{ url('/service') }}">Novage Mindfullness & Counseling</a></li>
 					</ul>
 				</div>
 			</div>
@@ -256,11 +256,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Company Support </a></li>
-						<li><a href="#">FAQuestions</a></li>
-						<li><a href="#">Company Licence</a></li>
+						<li><a href="">Terms & Conditions</a></li>
+						<li><a href="">Privacy Policy</a></li>
+						<li><a href="">Company Support </a></li>
+						<li><a href="{{ url('/faq') }}">FAQuestions</a></li>
+						<li><a href="">Company Licence</a></li>
 					</ul>
 				</div>
 			</div>

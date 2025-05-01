@@ -37,8 +37,8 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+255629184849" >
-							<span>Call Now : +255-7153-03510 </span>
+						<a href="tel:+255715303510" >
+							<span>Call Now : +255-7153-03510 / +255-7464-86390</span>
 							<span class="h4"></span>
 						</a>
 					</div>
@@ -124,7 +124,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="images/service/nutrition.jpg" alt="" class="img-fluid">
+					<img src="images/about/about-1.jpg" alt="" class="img-fluid w-100">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Nutrition Coaching</h4>
 						<p class="mb-4">Get personalized meal suggestions rooted in local culture and dietary needs to support vitality and healthy aging.</p>
@@ -134,7 +134,7 @@
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="images/service/movement.jpg" alt="" class="img-fluid">
+					<img src="images/about/about-2.jpg" alt="" class="img-fluid w-100">
 					<div class="content">
 						<h4 class="mt-4 mb-2  title-color">Therapeutic Movement</h4>
 						<p class="mb-4">Enjoy guided physical activity designed for various mobility levels—keeping the body flexible, strong, and active.</p>
@@ -144,7 +144,7 @@
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="images/service/mindfulness.jpg" alt="" class="img-fluid">
+					<img src="images/about/about-5.jpg" alt="" class="img-fluid w-100">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Mindfulness & Counseling</h4>
 						<p class="mb-4">Support emotional well-being and cognitive strength with mindfulness sessions and access to professional counseling.</p>
@@ -152,9 +152,19 @@
 				</div>
 			</div>
 
+            <div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-block mb-5 mb-lg-0">
+					<img src="images/about/about-4.jpg" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">Novage Connect</h4>
+						<p class="mb-4">Community and companionship programs that reduce isolation and keep older adults socially active. Includes virtual meetups, support groups, and peer engagement all designed to foster belonging and joy.</p>
+					</div>
+				</div>
+			</div>
+
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/service/consultation.jpg" alt="" class="img-fluid">
+					<img src="images/about/about-8.jpg" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Virtual Consultations</h4>
 						<p class="mb-4">Connect with wellness professionals for personalized advice on nutrition, fitness, and age-related health needs.</p>
@@ -164,7 +174,7 @@
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/service/wellness-tier.jpg" alt="" class="img-fluid">
+					<img src="images/about/about-3.jpg" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Wellness Tiers</h4>
 						<p class="mb-4">Access care tailored to your current lifestyle—Foundational, Enhanced, or Independent—so you get what fits you best.</p>
@@ -172,15 +182,15 @@
 				</div>
 			</div>
 
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			{{-- <div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/service/subscription.jpg" alt="" class="img-fluid">
+					<img src="images/about/about-7.jpg" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Flexible Subscriptions</h4>
 						<p class="mb-4">Choose a wellness plan that works for your lifestyle and budget, with both mobile and USSD access options available.</p>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </section>
@@ -191,7 +201,7 @@
 			<div class="col-lg-7">
 				<div class="cta-content">
 					<div class="divider mb-4"></div>
-					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
+					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy aging</span></h2>
 					<a href="{{ url('/contact') }}" class="btn btn-main-2 btn-round-full">Get intouch<i class="icofont-simple-right  ml-2"></i></a>
 				</div>
 			</div>
@@ -227,11 +237,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Novage Nutrition </a></li>
-						<li><a href="#">Novage Move</a></li>
-						<li><a href="#">Novage Wellness</a></li>
-						<li><a href="#">Novage Connect</a></li>
-						<li><a href="#">Novage Mindfullness & Counseling</a></li>
+						<li><a href="{{ url('/service') }}">Novage Nutrition </a></li>
+						<li><a href="{{ url('/service') }}">Novage Move</a></li>
+						<li><a href="{{ url('/service') }}">Novage Wellness</a></li>
+						<li><a href="{{ url('/service') }}">Novage Connect</a></li>
+						<li><a href="{{ url('/service') }}">Novage Mindfullness & Counseling</a></li>
 					</ul>
 				</div>
 			</div>
@@ -242,11 +252,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Company Support </a></li>
-						<li><a href="#">FAQuestions</a></li>
-						<li><a href="#">Company Licence</a></li>
+						<li><a href="">Terms & Conditions</a></li>
+						<li><a href="">Privacy Policy</a></li>
+						<li><a href="">Company Support </a></li>
+						<li><a href="{{ url('/faq') }}">FAQuestions</a></li>
+						<li><a href="">Company Licence</a></li>
 					</ul>
 				</div>
 			</div>
