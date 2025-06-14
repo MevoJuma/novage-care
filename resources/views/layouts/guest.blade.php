@@ -1,30 +1,80 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>Novage Care</title>
+    <link rel="icon" href="{{ asset('images/novage-care.svg') }}" type="image/x-icon">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/themify-icons/themify-icons.css') }}">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/icofont/css/icofont.css') }}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
+
+</head>
+
+<body>
+     <section class="login p-fixed d-flex text-center bg-white">
+        <!-- Container-fluid starts -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+            {{ $slot }}
         </div>
-    </body>
+    </div>
+        </div>
+     </section>
+
+
+    <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{{ asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{{ asset('assets/js/modernizr/modernizr.js') }}"></script>
+    <!-- am chart -->
+    <script src="{{ asset('assets/pages/widget/amchart/amcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/pages/widget/amchart/serial.min.js') }}"></script>
+    <!-- Todo js -->
+    <script type="text/javascript " src="{{ asset('assets/pages/todo/todo.js ') }}"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="{{ asset('assets/pages/dashboard/custom-dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+    <script type="text/javascript " src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
+    <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo-12.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script>
+        var $window = $(window);
+        var nav = $('.fixed-button');
+        $window.scroll(function() {
+            if ($window.scrollTop() >= 200) {
+                nav.addClass('active');
+            } else {
+                nav.removeClass('active');
+            }
+        });
+    </script>
+</body>
+
 </html>

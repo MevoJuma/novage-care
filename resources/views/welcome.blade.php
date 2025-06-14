@@ -1,534 +1,393 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
-  <meta name="author" content="themefisher.com">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+    <meta name="author" content="Novage Care">
 
-  <title>Novage Care</title>
+    <title>Novage Care</title>
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo0.png') }}" />
 
-  <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-  <!-- Icon Font Css -->
-  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
-  <!-- Slick Slider  CSS -->
-  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+    <!-- Icon Font Css -->
+    <link rel="stylesheet" href="{{ asset('plugins/icofont/icofont.min.css') }}">
+
+    <!-- Slick Slider  CSS -->
+    <link rel="stylesheet" href="{{ asset('plugins/slick-carousel/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/slick-carousel/slick/slick-theme.css') }}">
+
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
 
 <body id="top">
 
-<header>
-	<div class="header-top-bar">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<ul class="top-bar-info list-inline-item pl-0 mb-0">
-						<li class="list-inline-item"><a href="mailto:support@novagecare.com"><i class="icofont-support-faq mr-2"></i>support@novagecare.com</a></li>
-						<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dar Es Salaam, Tanzania </li>
-					</ul>
-				</div>
-				<div class="col-lg-6">
-					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+255715303510" >
-							<span>Call Now : +255-7153-03510 / +255-7464-86390</span>
-							<span class="h4"></span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<nav class="navbar navbar-expand-lg navigation" id="navbar">
-		<div class="container">
-		 	 <a class="navbar-brand" href="{{ url('/')}}">
-			  	<img src="images/logo.png" alt="" class="navbar-logo">
-			  </a>
-
-		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="icofont-navigation-menu"></span>
-		  </button>
-
-		  <div class="collapse navbar-collapse" id="navbarmain">
-			<ul class="navbar-nav ml-auto">
-			  <li class="nav-item active">
-				<a class="nav-link" href="{{ url('/') }}">Home</a>
-			  </li>
-			   <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-			    <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">Services</a></li>
-
-			    {{-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
-					<ul class="dropdown-menu" aria-labelledby="dropdown02">
-						<li><a class="dropdown-item" href="department.html">Departments</a></li>
-						<li><a class="dropdown-item" href="department-single.html">Department Single</a></li>
-					</ul>
-			  	</li> --}}
-
-			  	{{-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="doctor.html" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
-					<ul class="dropdown-menu" aria-labelledby="dropdown03">
-						<li><a class="dropdown-item" href="doctor.html">Doctors</a></li>
-						<li><a class="dropdown-item" href="doctor-single.html">Doctor Single</a></li>
-						<li><a class="dropdown-item" href="appoinment.html">Appoinment</a></li>
-					</ul>
-			  	</li> --}}
-
-			   {{-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
-					<ul class="dropdown-menu" aria-labelledby="dropdown05">
-						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog with Sidebar</a></li>
-
-						<li><a class="dropdown-item" href="{{ url('/blog') }}">Blog Single</a></li>
-					</ul>
-			  	</li> --}}
-			   <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
-                {{-- <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Login</a></li> --}}
-
-                {{-- <div class="language-switcher">
-                    <a href="{{ route('lang.switch', 'en') }}">
-                        <img src="/flags/en.png" alt="English" style="width:24px;">
-                    </a>
-                    <a href="{{ route('lang.switch', 'sw') }}">
-                        <img src="/flags/sw.png" alt="Swahili" style="width:24px;">
-                    </a>
-                </div> --}}
-
-			</ul>
-		  </div>
-		</div>
-	</nav>
-</header>
+    <!-- Language Switcher (Visible on Large Screens, Right of Login Button) -->
 
 
+    <script>
+        // Function to get the current language from the URL
+        function getLanguageFromUrl() {
+            if (window.location.href.includes('/locale/sw')) {
+                return 'sw';
+            } else if (window.location.href.includes('/locale/en')) {
+                return 'en';
+            }
+            return 'en'; // Default to English
+        }
+
+        function setLanguageFlag() {
+            let lang = getLanguageFromUrl();
+            let flagUrl = lang === 'sw' ? 'https://flagcdn.com/w40/tz.png' : 'https://flagcdn.com/w40/us.png';
+
+            // Update both flags in navbar
+            document.getElementById('selectedFlag').src = flagUrl;
+            document.getElementById('selectedFlagLg').src = flagUrl;
+        }
+
+        // Run when the page loads to ensure correct flag is displayed
+        document.addEventListener('DOMContentLoaded', setLanguageFlag);
+    </script>
 
 
-<!-- Slider Start -->
-<section class="banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-12 col-xl-7">
-				<div class="block">
-					<div class="divider mb-3"></div>
-					{{-- <span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span><br></br> --}}
-                    <h1 class="mb-3 mt-3">Redifining Aging with care</h1>
-
-					<p class="mb-4 pr-5">Empowering older adults to thrive—body, mind, and spirit—through compassionate care and holistic wellness.</p>
-					<div class="btn-container ">
-						<a href="{{ url('/about')}}" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Learn More <i class="icofont-simple-right ml-2  "></i></a>
-					</div>
-				</div>
-			</div>
-
-            <!-- Image Column -->
-			{{-- <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 order-1 order-lg-2 text-center">
-				<img src="{{ asset('images/.png') }}" alt="Elderly care illustration" class="img-fluid w-75">
-			</div> --}}
-
-		</div>
-	</div>
-</section>
-<section class="features">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="feature-block d-lg-flex">
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-surgeon-alt"></i>
-						</div>
-						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
-						<p class="mb-4">Get ALL time support for emergency.</p>
-						{{-- <a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a> --}}
-					</div>
-
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-ui-clock"></i>
-						</div>
-						<span>Timing schedule</span>
-						<h4 class="mb-3">Working Hours</h4>
-						<ul class="w-hours list-unstyled">
-		                    <li class="d-flex justify-content-between">Mon - Fri : <span>8:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Sat : <span>9:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Sun : <span>10:00 - 17:00</span></li>
-		                </ul>
-					</div>
-
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-support"></i>
-						</div>
-						<span>Emegency Cases</span>
-						<h4 class="mb-3">+255-7153-03510</h4>
-						<p>Get ALL time support for emergency.Get Conneted with us for any urgency .</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<section class="section about">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img">
-					<img src="images/about/img-1.jpg" alt="" class="img-fluid">
-					<img src="images/about/img-2.jpg" alt="" class="img-fluid mt-4">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img mt-4 mt-lg-0">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="about-content pl-4 mt-4 mt-lg-0">
-                    <h2 class="title-color">Personalized Care & Healthy Aging</h2>
-                    <p class="mt-4 mb-5">Aging comes with both visible and silent struggles managing chronic illnesses, lifestyle changes, loss of routine, or simply feeling unseen. Yet behind every change, we see the strength. Behind every wrinkle, we see resilience and in every quiet moment, we recognize dignity in each step taken with intention. Because aging isn’t just a process, it’s a testament to life lived....</p>
-
-					<a href="{{ url('/about')}}" class="btn btn-main-2 btn-round-full btn-icon">About Us<i class="icofont-simple-right ml-3"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="cta-section ">
-	<div class="container">
-		<div class="cta position-relative">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-doctor"></i>
-						<span class="h3">58</span>k
-						<p>Happy People</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-flag"></i>
-						<span class="h3">700</span>+
-						<p>Elders Joined</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-badge"></i>
-						<span class="h3">40</span>+
-						<p>Experts</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-globe"></i>
-						<span class="h3">20</span>
-						<p>Products</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="section service gray-bg">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 text-center">
-                <div class="section-title">
-                    <h2>Nurturing Healthy Aging, Every Step of the Way</h2>
-                    <div class="divider mx-auto my-4"></div>
-                    <p>Novage Care offers a holistic wellness ecosystem—combining culturally rooted nutrition, movement, mindfulness, and personalized support—to empower older adults to thrive in body, mind, and spirit.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service-item mb-4">
-                    <div class="icon d-flex align-items-center">
-                        <i class="icofont-apple text-lg"></i>
-                        <h4 class="mt-3 mb-3">Nutrition Coaching</h4>
+    <header>
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <ul class="top-bar-info list-inline-item pl-0 mb-0">
+                            <li class="list-inline-item"><a href="mailto:support@novagecare.com"><i
+                                        class="icofont-support-faq mr-2"></i>support@novagecare.com</a></li>
+                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dar Es Salaam,
+                                Tanzania </li>
+                        </ul>
                     </div>
-                    <div class="content">
-                        <p class="mb-4">Personalized meal suggestions using locally available foods, guided by cultural relevance and wellness goals.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service-item mb-4">
-                    <div class="icon d-flex align-items-center">
-                        <i class="icofont-therapy text-lg"></i>
-                        <h4 class="mt-3 mb-3">Therapeutic Movement</h4>
-                    </div>
-                    <div class="content">
-                        <p class="mb-4">Mobility-based exercise videos and audio routines designed to enhance strength, flexibility, and independence.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service-item mb-4">
-                    <div class="icon d-flex align-items-center">
-                        <i class="icofont-brain-alt text-lg"></i>
-                        <h4 class="mt-3 mb-3">Mindfulness</h4>
-                    </div>
-                    <div class="content">
-                        <p class="mb-4">Support emotional balance and cognitive well-being through guided mindfulness, breathing exercises, and counseling.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service-item mb-4">
-                    <div class="icon d-flex align-items-center">
-                        <i class="icofont-doctor text-lg"></i>
-                        <h4 class="mt-3 mb-3">Virtual Consultations</h4>
-                    </div>
-                    <div class="content">
-                        <p class="mb-4">Connect with healthcare professionals for support on nutrition, wellness, and healthy aging—all from the comfort of home.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service-item mb-4">
-                    <div class="icon d-flex align-items-center">
-                        <i class="icofont-chart-growth text-lg"></i>
-                        <h4 class="mt-3 mb-3">Personalized Wellness</h4>
-                    </div>
-                    <div class="content">
-                        <p class="mb-4">Wellness programs tailored to individual needs—whether foundational, enhanced, or independent—to support every stage of aging.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="service-item mb-4">
-                    <div class="icon d-flex align-items-center">
-                        <i class="icofont-credit-card text-lg"></i>
-                        <h4 class="mt-3 mb-3">Flexible Subscriptions</h4>
-                    </div>
-                    <div class="content">
-                        <p class="mb-4">Choose from affordable, adaptable subscription packages that make holistic wellness accessible to all in your journey to healthy aging.</p>
+                    <div class="col-lg-6">
+                        <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
+                            <a href="tel:+255715303510">
+                                <span>Call Now : +255-7153-03510 / +255-7464-86390</span>
+                                <span class="h4"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-@section('success')
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endsection
+        <nav class="navbar navbar-expand-lg navigation" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="" class="navbar-logo">
+                </a>
 
-<section class="section appoinment">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-6 ">
-				<div class="appoinment-content">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
-					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+255715303510</h2>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-10 ">
-				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book a Wellness Consultation</h2>
-                    <p class="mb-4">Schedule a virtual session with our wellness experts—whether for nutrition guidance, therapeutic movement, or emotional support—tailored to your personal aging journey.</p>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+                    aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icofont-navigation-menu"></span>
+                </button>
 
-                    @if(session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
+                <div class="collapse navbar-collapse" id="navbarmain">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/') }}">@lang('messages.home')</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">@lang('messages.about')</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">@lang('messages.service')</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/blog') }}">@lang('messages.blog')</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">@lang('messages.contact')</a>
+                        </li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">@lang('messages.login')</a> --}}
+                        </li>
+                        <div class="d-flex"> <a href="{{ url('/dashboard') }}" class="btn btn-main-2 btn-icon">@lang('messages.login')</a></div>
+                        <div class="dropdown ms-3 d-none d-lg-flex">
+                            <button class="btn btn-sm bg-white dropdown-toggle d-flex align-items-center" type="button"
+                                id="languageDropdownLg" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img id="selectedFlagLg" src="https://flagcdn.com/w40/us.png" alt="English"
+                                    width="25" class="me-1">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdownLg">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="locale/en"
+                                        onclick="changeLanguage('en')">
+                                        <img src="https://flagcdn.com/w40/us.png" alt="English" width="20"
+                                            class="me-2"> Eng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="locale/sw"
+                                        onclick="changeLanguage('sw')">
+                                        <img src="https://flagcdn.com/w40/tz.png" alt="Swahili" width="20"
+                                            class="me-2"> Swa
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <!-- Slider Start -->
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-xl-7">
+                    <div class="block">
+                        <div class="divider mb-3"></div>
+                        {{-- <span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span><br></br> --}}
+                        <h1 class="mb-3 mt-3">@lang('messages.tag_line')</h1>
+
+                        <p class="mb-4 pr-5 text-white">@lang('messages.welcome_message')</p>
+                        <div class="btn-container ">
+                            <a href="{{ url('/about') }}"
+                                class="btn btn-main-2 btn-icon btn-round-full">@lang('messages.learn_more')<i
+                                    class="icofont-simple-right ml-2  ">
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="feature-block d-lg-flex">
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4">
+                                <i class="icofont-surgeon-alt"></i>
+                            </div>
+                            <span>@lang('messages.hour_service')</span>
+                            <h4 class="mb-3">@lang('messages.online_appointment')</h4>
+                            <p class="mb-4">@lang('messages.get_aLL_time_support_for_emergency')</p>
+                            {{-- <a href="appoinment.html" class="btn btn-main btn-round-full">@lang('messages.make_appointment')</a> --}}
+                        </div>
+
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4">
+                                <i class="icofont-ui-clock"></i>
+                            </div>
+                            <span>@lang('messages.timing_schedule')</span>
+                            <h4 class="mb-3">@lang('messages.working_hours')</h4>
+                            <ul class="w-hours list-unstyled">
+                                <li class="d-flex justify-content-between">@lang('messages.monday_to_friday') : <span>8:00 -
+                                        17:00</span></li>
+                                <li class="d-flex justify-content-between">@lang('messages.saturday') : <span>9:00 -
+                                        17:00</span></li>
+                                <li class="d-flex justify-content-between">@lang('messages.sunday') : <span>10:00 -
+                                        17:00</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item mb-5 mb-lg-0">
+                            <div class="feature-icon mb-4">
+                                <i class="icofont-support"></i>
+                            </div>
+                            <span>@lang('messages.emergency_cases')</span>
+                            <h4 class="mb-3">+255-7153-03510</h4>
+                            <p>@lang('messages.emergency_cases_text')</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="about-img">
+                        <img src="images/about/img-1.jpg" alt="" class="img-fluid">
+                        <img src="images/about/img-2.jpg" alt="" class="img-fluid mt-4">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="about-img mt-4 mt-lg-0">
+                        <img src="images/about/img-3.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-content pl-4 mt-4 mt-lg-0">
+                        <h2 class="title-color">@lang('messages.personalized_care')</h2>
+                        <p class="mt-4 mb-5">@lang('messages.personalized_care_text')</p>
+
+                        <a href="{{ url('/about') }}"
+                            class="btn btn-main-2 btn-round-full btn-icon">@lang('messages.about_us')<i
+                                class="icofont-simple-right ml-3">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section ">
+        <div class="container">
+            <div class="cta position-relative">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter-stat">
+                            <i class="icofont-doctor"></i>
+                            <span class="h3">58</span>k
+                            <p>@lang('messages.happy_people')</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter-stat">
+                            <i class="icofont-flag"></i>
+                            <span class="h3">700</span>+
+                            <p>@lang('messages.elders_joined')</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter-stat">
+                            <i class="icofont-badge"></i>
+                            <span class="h3">40</span>+
+                            <p>@lang('messages.experts')</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter-stat">
+                            <i class="icofont-globe"></i>
+                            <span class="h3">20</span>
+                            <p>@lang('messages.products')</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @section('success')
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endsection
+
+    <section class="section appoinment">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 ">
+                    <div class="appoinment-content">
+                        <img src="images/about/img-3.jpg" alt="" class="img-fluid">
+                        <div class="emergency">
+                            <h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+255715303510</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10 ">
+                    <div class="appoinment-wrap mt-5 mt-lg-0">
+                        <h2 class="mb-2 title-color">@lang('messages.book_a_wellness_consultation')</h2>
+                        <p class="mb-4">@lang('messages.booking_explanations')</p>
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                        </div>
-                    @endif
+                            </div>
+                        @endif
 
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
-                    <form method="POST" action="{{ route('appointments.store') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <select name="service" value="{{ old('service') }}" class="form-control" >
-                                    <option selected disabled>Choose Service</option>
-                                    <option>Nutrition Coaching</option>
-                                    <option>Therapeutic Movement</option>
-                                    <option>Mindfulness & Counseling</option>
-                                    <option>Virtual Consultation</option>
-                                    <option>Wellness Tier Guidance</option>
-                                    <option>Subscription Support</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select name="specialist" value="{{ old('specialist') }}" class="form-control">
-                                    <option selected disabled>Select Specialist</option>
-                                    <option>Nutritionist</option>
-                                    <option>Therapist / Counselor</option>
-                                    <option>Movement Coach</option>
-                                    <option>Geriatric Care Expert</option>
-                                    <option>General Wellness Consultant</option>
-                                </select>
-                            </div>
-                        </div>
+                        <form method="POST" action="{{ route('appointments.store') }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <select name="service" value="{{ old('service') }}" class="form-control">
+                                            <option selected disabled>@lang('messages.choose_service')</option>
+                                            <option>@lang('messages.nutrition_coaching')</option>
+                                            <option>@lang('messages.therapeutic_movement')</option>
+                                            <option>@lang('messages.mindfulness_counseling')</option>
+                                            <option>@lang('messages.virtual_consultation')</option>
+                                            <option>@lang('messages.wellness_tier_guidance')</option>
+                                            <option>@lang('messages.subscription_support')</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <select name="specialist" value="{{ old('specialist') }}"
+                                            class="form-control">
+                                            <option selected disabled>@lang('messages.select_specialist')</option>
+                                            <option>@lang('messages.nutritionist')</option>
+                                            <option>@lang('messages.therapist_counselor')</option>
+                                            <option>@lang('messages.movement_coach')</option>
+                                            <option>@lang('messages.geriatric_care_expert')</option>
+                                            <option>@lang('messages.general_wellness_consultant')</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input id="appointmentDate" name="date" value="{{ old('date') }}" type="date" class="form-control" placeholder="dd/mm/yyyy" min="">
-                            </div>
-                        </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input id="appointmentDate" name="date" value="{{ old('date') }}"
+                                            type="date" class="form-control" placeholder="dd/mm/yyyy"
+                                            min="">
+                                    </div>
+                                </div>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="time" value="{{ old('time') }}" type="time" class="form-control" placeholder="Time">
-                            </div>
-                        </div>
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="name" value="{{ old('name') }}" type="text" class="form-control" placeholder="Full Name">
-                            </div>
-                        </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input name="time" value="{{ old('time') }}" type="time"
+                                            class="form-control" placeholder="Time">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input name="name" value="{{ old('name') }}" type="text"
+                                            class="form-control" placeholder="@lang('messages.full_name')">
+                                    </div>
+                                </div>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="phone" value="{{ old('phone') }}" type="Number" class="form-control" placeholder="Phone Number">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input name="phone" value="{{ old('phone') }}" type="Number"
+                                            class="form-control" placeholder="@lang('messages.phone_number')">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group-2 mb-4">
+                                <textarea name="message" value="{{ old('message') }}" class="form-control" rows="6"
+                                    placeholder="@lang('messages.message')"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-main btn-round-full">@lang('messages.book_now')<i
+                                    class="icofont-simple-right ml-2  "></i></button>
+                        </form>
                     </div>
-                    <div class="form-group-2 mb-4">
-                        <textarea name="message" value="{{ old('message') }}" class="form-control" rows="6" placeholder="Your Message"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-main btn-round-full" >Book Now <i class="icofont-simple-right ml-2  "></i></button>
-                </form>
+                </div>
             </div>
-			</div>
-		</div>
-	</div>
-</section>
-{{-- <section class="section testimonial-2 gray-bg">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7">
-				<div class="section-title text-center">
-					<h2>We served over 5000+ Elders</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>From personalized nutrition to emotional support, our community of elders continues to thrive through care designed with dignity, culture, and connection in mind.</p>
-				</div>
-			</div>
-		</div>
-	</div> --}}
+        </div>
+    </section>
 
-	{{-- <div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-12 testimonial-wrap-2">
-				<div class="testimonial-block style-2  gray-bg">
-					<i class="icofont-quote-right"></i>
-
-					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb1.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info ">
-						<h4>Amazing service!</h4>
-						<span>John Partho</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb2.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Expert doctors!</h4>
-						<span>Mullar Sarth</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb3.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Good Support!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb4.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Nice Environment!</h4>
-						<span>Partho Sarothi</span>
-						<p class="mt-4">
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb1.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Modern Service!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
-			</div>
-		</div>
-	</div> --}}
-</section>
-{{-- <section class="section clients">
+    {{-- <section class="section clients">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
@@ -596,109 +455,113 @@
 		</div>
 	</div>
 </section> --}}
-<!-- footer Start -->
-<footer class="footer section gray-bg">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-4 mr-auto col-sm-6">
-				<div class="widget mb-5 mb-lg-0">
-					<div class="logo mb-4">
-						<img src="images/logo.png" alt="" class="navbar-logo">
-					</div>
-					<p>At Novage Care, we provide culturally grounded, holistic wellness services—supporting physical vitality, emotional balance, and independent living for adults aged 55 and above.</p>
 
-					<ul class="list-inline footer-socials mt-4">
-						<li class="list-inline-item"><a href=""><i class="icofont-facebook"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="icofont-twitter"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="icofont-linkedin"></i></a></li>
-                        <li class="list-inline-item"><a href=""><i class="icofont-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href=""><i class="icofont-youtube-play"></i></a></li>
-                        <li class="list-inline-item"><a href="https://wa.me/+255715303510" target="_blank"><i class="icofont-whatsapp"></i></a></li>
-					</ul>
-				</div>
-			</div>
+    <!-- footer Start -->
+    <footer class="footer section gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mr-auto col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <div class="logo mb-4">
+                            <img src="{{ asset('images/logo.png') }}" alt="" class="navbar-logo">
+                        </div>
+                        <p>@lang('messages.footer_paragraph')</p>
 
-			<div class="col-lg-2 col-md-6 col-sm-6">
-				<div class="widget mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-3">Services</h4>
-					<div class="divider mb-4"></div>
+                        <ul class="list-inline footer-socials mt-4">
+                            <li class="list-inline-item"><a href=""><i class="icofont-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="icofont-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="icofont-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="icofont-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="icofont-youtube-play"></i></a>
+                            </li>
+                            <li class="list-inline-item"><a href="https://wa.me/+255715303510" target="_blank"><i
+                                        class="icofont-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
 
-					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="{{ url('/service') }}">Novage Nutrition </a></li>
-						<li><a href="{{ url('/service') }}">Novage Move</a></li>
-						<li><a href="{{ url('/service') }}">Novage Wellness</a></li>
-						<li><a href="{{ url('/service') }}">Novage Connect</a></li>
-						<li><a href="{{ url('/service') }}">Novage Mindfullness & Counseling</a></li>
-					</ul>
-				</div>
-			</div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">@lang('messages.service')</h4>
+                        <div class="divider mb-4"></div>
 
-			<div class="col-lg-2 col-md-6 col-sm-6">
-				<div class="widget mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-3">Support</h4>
-					<div class="divider mb-4"></div>
+                        <ul class="list-unstyled footer-menu lh-35">
+                            <li><a href="{{ url('/service') }}">Novage Nutrition</a></li>
+                            <li><a href="{{ url('/service') }}">Novage Move</a></li>
+                            <li><a href="{{ url('/service') }}">Novage Wellness</a></li>
+                            <li><a href="{{ url('/service') }}">Novage Connect</a></li>
+                            <li><a href="{{ url('/service') }}">Novage Mindfulness & Counselling</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="">Terms & Conditions</a></li>
-						<li><a href="">Privacy Policy</a></li>
-						<li><a href="">Company Support </a></li>
-						<li><a href="{{ url('/faq') }}">FAQuestions</a></li>
-						<li><a href="">Company Licence</a></li>
-					</ul>
-				</div>
-			</div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">@lang('messages.support')</h4>
+                        <div class="divider mb-4"></div>
 
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="widget widget-contact mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-3">Get in Touch</h4>
-					<div class="divider mb-4"></div>
+                        <ul class="list-unstyled footer-menu lh-35">
+                            <li><a href="">@lang('messages.terms_conditions')</a></li>
+                            <li><a href="">@lang('messages.privacy_policy')</a></li>
+                            <li><a href="">@lang('messages.company_support')</a></li>
+                            <li><a href="{{ url('/faq') }}">@lang('messages.faq')</a></li>
+                            <li><a href="">@lang('messages.company_licence')</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-					<div class="footer-contact-block mb-4">
-						<div class="icon d-flex align-items-center">
-							<i class="icofont-email mr-3"></i>
-							<span class="h6 mb-0">Support Available for 24/7</span>
-						</div>
-						<h4 class="mt-2"><a href="mailto:support@novagecare.com">Support@novagecare.com</a></h4>
-					</div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="widget widget-contact mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">@lang('messages.get_in_touch')</h4>
+                        <div class="divider mb-4"></div>
 
-					<div class="footer-contact-block">
-						<div class="icon d-flex align-items-center">
-							<i class="icofont-support mr-3"></i>
-							<span class="h6 mb-0">Mon to Sun : 08:30 - 18:00</span>
-						</div>
-						<h4 class="mt-2"><a href="tel:+255715303510">+255-7153-03510</a></h4>
-					</div>
-				</div>
-			</div>
-		</div>
+                        <div class="footer-contact-block mb-4">
+                            <div class="icon d-flex align-items-center">
+                                <i class="icofont-email mr-3"></i>
+                                <span class="h6 mb-0">@lang('messages.support_available')</span>
+                            </div>
+                            <h4 class="mt-2"><a href="mailto:support@novagecare.com">support@novagecare.com</a></h4>
+                        </div>
 
-		<div class="footer-btm py-4 mt-5">
-			<div class="row align-items-center justify-content-between">
-				<div class="col-lg-6">
-					<div class="copyright">
-						&copy; Copyright Reserved to <span class="text-color">NovageCare</span>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="subscribe-form text-lg-right mt-5 mt-lg-0">
-						<form action="#" class="subscribe">
-							<input type="text" class="form-control" placeholder="Your Email address">
-							<a type="submit" href="mailto:support@novagecare.com" class="btn btn-main-2 btn-round-full">Subscribe</a>
-						</form>
-					</div>
-				</div>
-			</div>
+                        <div class="footer-contact-block">
+                            <div class="icon d-flex align-items-center">
+                                <i class="icofont-support mr-3"></i>
+                                <span class="h6 mb-0">Mon to Sun : 08:30 - 18:00</span>
+                            </div>
+                            <h4 class="mt-2"><a href="tel:+255715303510">+255-7153-03510</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<div class="row">
-				<div class="col-lg-4">
-					<a class="backtop js-scroll-trigger" href="#top">
-						<i class="icofont-long-arrow-up"></i>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
+            <div class="footer-btm py-4 mt-5">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <div class="copyright">
+                            &copy; @lang('messages.copyright_reserved_to') <span class="text-color">NovageCare</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="subscribe-form text-lg-right mt-5 mt-lg-0">
+                            <form action="#" class="subscribe">
+                                <input type="text" class="form-control" placeholder="@lang('messages.subscribe_placeholder')">
+                                <a type="submit" href="mailto:support@novagecare.com"
+                                    class="btn btn-main-2 btn-round-full">@lang('messages.subscribe')</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a class="backtop js-scroll-trigger" href="#top">
+                            <i class="icofont-long-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
@@ -708,34 +571,36 @@
 
 
     <!-- Main jQuery -->
-    <script src="plugins/jquery/jquery.js"></script>
+    <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
     <!-- Bootstrap 4.3.2 -->
-    <script src="plugins/bootstrap/js/popper.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/counterup/jquery.easing.js"></script>
+    <script src="{{ asset('plugins/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/counterup/jquery.easing.js') }}"></script>
     <!-- Slick Slider -->
-    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="{{ asset('plugins/slick-carousel/slick/slick.min.js') }}"></script>
     <!-- Counterup -->
-    <script src="plugins/counterup/jquery.waypoints.min.js"></script>
+    <script src="{{ asset('plugins/counterup/jquery.waypoints.min.js') }}"></script>
 
-    <script src="plugins/shuffle/shuffle.min.js"></script>
-    <script src="plugins/counterup/jquery.counterup.min.js"></script>
+    <script src="{{ asset('plugins/shuffle/shuffle.min.js') }}"></script>
+    <script src="{{ asset('plugins/counterup/jquery.counterup.min.js') }}"></script>
     <!-- Google Map -->
-    <script src="plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+    <script src="{{ asset('plugins/google-map/map.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap">
+    </script>
 
-    <script src="js/script.js"></script>
-    <script src="js/contact.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/contact.js') }}"></script>
 
 
     {{-- Date Validity --}}
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('appointmentDate').setAttribute('min', today);
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('appointmentDate').setAttribute('min', today);
+        });
     </script>
 
 
-  </body>
-  </html>
+</body>
+
+</html>

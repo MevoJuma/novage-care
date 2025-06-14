@@ -11,9 +11,22 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
+    public function dashboard(): RedirectResponse
+    {
+        $user = Auth::user();
+
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        if ($user->role === 'elder') {
+            return redirect()->route('elder.dashboard');
+        }
+
+        // Deny access for any other role
+        abort(403, 'Unauthorized action.');
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [

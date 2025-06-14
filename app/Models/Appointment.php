@@ -9,7 +9,7 @@ class Appointment extends Model
 {
     //
     use HasFactory;
-    
+
     protected $fillable = [
         'service',
         'specialist',
@@ -19,4 +19,9 @@ class Appointment extends Model
         'phone',
         'message',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
