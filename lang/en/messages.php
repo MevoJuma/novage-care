@@ -33,6 +33,12 @@ return [
     'welcome_message' => 'Empowering older adults to thrive—body, mind, and spirit—through compassionate care and holistic wellness.',
     'learn_more' => 'Learn More',
     'hour_service' => '24 Hours Service',
+    'around_the_clock_support' => 'Around the Clock Support',
+    'emergency_and_appointment' => 'Emergency and Appointment',
+    'call_us_anytime' => 'Call us anytime for emergency and appointment.',
+    'wellness_insights' => 'Wellness Insights',
+    'healthy_aging_tips' => 'Healthy aging tips',
+    'latest_tips_for_elder_health' => 'Latest tips for elder health',
     'online_appointment' => 'Online Appointment',
     'get_aLL_time_support_for_emergency' => 'Get ALL time support for emergency',
     'make_appointment' => 'Make an appoinment',
@@ -121,4 +127,7 @@ return [
     'email_us' => 'Email Us',
     'location' => 'Location',
     'query_topic' => 'Query Topic',
+    'contact_us_explanation' => 'Have questions about our wellness programs or need support? We’re here to help you on your journey to healthy aging—reach out anytime.',
+    'send_message' => 'Send Message',
+
 ];

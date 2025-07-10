@@ -28,6 +28,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -116,6 +119,8 @@
             }
         });
     </script>
+    @stack('scripts')
+
 </body>
 
 </html>

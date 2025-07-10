@@ -57,6 +57,7 @@
                     <div class="col-md-10">
                         <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
                         <p class="text-inverse text-left"><b>Your Authentication Team</b></p>
+                        <a href="{{ route('register')}}">Register Here!</a>
                     </div>
                     <div class="col-md-2">
                         <img src="{{ asset('images/logo0.png') }}" style="height: 40px;" alt="small-logo.png">

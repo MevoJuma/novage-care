@@ -54,12 +54,29 @@
         </div>
     </nav>
 
+    {{-- <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+                    {{--Page Header --}
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h4>Welcome, {{ Auth::user()->name }}</h4>
+                            <span class="text-muted text-sm">{{ now()->format('l, F j, Y') }}</span>
+                        </div>
+                    </div>
 
-
-
-    {{-- the rest of the contets --}}
-
-
-
-
+                    {{-- Quick Stats --}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-block">
+                                    <h5 class="text-muted">Next Appointment</h5>
+                                    {{-- @if ($appointments->isNotEmpty()) --}}
+                                        {{-- <p class="mt-2">{{ $appointments->first()->date }} @ {{ $appointments->first()->time}}</p> --}
+                                    @else
+                                        <p class="text-sm text-gray-500 mt-2">No upcoming appointments</p>
+                                    {{-- @endif --}
+                                </div>
+                                <div> --}}
 </x-app-layout>

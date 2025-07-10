@@ -68,7 +68,6 @@
 			    <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">@lang('messages.service')</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/blog') }}">@lang('messages.blog')</a></li>
 			    <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">@lang('messages.contact')</a></li>
-                {{-- <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">@lang('messages.login')</a></li> --}}
               <div class="d-flex"> <a href="{{ url('/dashboard') }}" class="btn btn-main-2 btn-icon">@lang('messages.login')</a></div>
                 <div class="dropdown ms-3 d-none d-lg-flex">
                     <button class="btn btn-sm bg-white dropdown-toggle d-flex align-items-center" type="button"
@@ -221,7 +220,7 @@
                         @endforeach
 	                </div>
 
-	                <div class="sidebar-widget category mb-3">
+	                {{-- <div class="sidebar-widget category mb-3">
 		                <h5 class="mb-4">Categories</h5>
 
 		                <ul class="list-unstyled">
@@ -248,12 +247,12 @@
 		                <li class="align-items-center">
 		                    <a href="#">Lab test</a>
 		                    <span>(5)</span>
-		                </li> --}}
+		                </li> --}
 		                </ul>
-	                </div>
+	                </div> --}}
 
 
-	                <div class="sidebar-widget tags mb-3">
+	                {{-- <div class="sidebar-widget tags mb-3">
 		                <h5 class="mb-4">Tags</h5>
                             {{-- @foreach($tags as $tag)
                                 <li><a href="{{ route('blog.tag', $tag->slug) }}">{{ $tag->name }}</a></li>
@@ -268,8 +267,8 @@
 		                <a href="#">Marketing</a>
 		                <a href="#">Social Media</a>
 		                <a href="#">Branding</a>
-		                <a href="#">Laboratory</a> --}}
-	                </div>
+		                <a href="#">Laboratory</a> --}
+	                </div> --}}
 
 
 	                <div class="sidebar-widget schedule-widget mb-3">

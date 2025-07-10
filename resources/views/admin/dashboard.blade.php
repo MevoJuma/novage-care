@@ -4,276 +4,347 @@
         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
         <div class="pcoded-inner-navbar main-menu">
 
-            {{-- <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+            <!-- Dashboard -->
+            <div class="pcoded-navigatio-lavel">Main</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="{{ route('admin.dashboard') }}">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                        <span class="pcoded-mtext">Dashboard</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
-
             </ul>
-            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Elders Management</div>
-            {{-- <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div> --}
+
+            <!-- Elders Management -->
+            <div class="pcoded-navigatio-lavel">Elders Management</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    <a href="form-elements-component.html">
-                        <span class="pcoded-micon"><i class="ti-layers"></i><b>EM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">View Elders</span>
+                    <a href="{{ route('admin.elders.index') }}">
+                        <span class="pcoded-micon"><i class="ti-user"></i><b>E</b></span>
+                        <span class="pcoded-mtext">All Elders</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="bs-basic-table.html">
-                        <span class="pcoded-micon"><i class="ti-layers"></i><b>EM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Register New Elder</span>
+                    <a href="{{ route('admin.elders.create') }}">
+                        <span class="pcoded-micon"><i class="ti-plus"></i><b>AE</b></span>
+                        <span class="pcoded-mtext">Add New Elder</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="form-components.html">
-                        <span class="pcoded-micon"><i class="ti-layers"></i><b>EM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Elder Health Reports</span>
+                    <a href="{{ route('admin.elders.reports') }}">
+                        <span class="pcoded-micon"><i class="ti-bar-chart"></i><b>ER</b></span>
+                        <span class="pcoded-mtext">Health Reports</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
             </ul>
-            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Caregivers</div>
+
+            <!-- Caregivers -->
+            <div class="pcoded-navigatio-lavel">Caregivers</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    <a href="form-elements-component.html">
-                        <span class="pcoded-micon"><i class="ti-layers"></i><b>UM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">All Caregivers</span>
+                    <a href="{{ route('admin.caregivers.index') }}">
+                        <span class="pcoded-micon"><i class="ti-id-badge"></i><b>CG</b></span>
+                        <span class="pcoded-mtext">All Caregivers</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="bs-basic-table.html">
-                        <span class="pcoded-micon"><i class="ti-layers"></i><b>UM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Assign Caregivers</span>
+                    <a href="{{ route('admin.caregiver.assign') }}">
+                        <span class="pcoded-micon"><i class="ti-exchange-vertical"></i><b>AC</b></span>
+                        <span class="pcoded-mtext">Assign Caregivers</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="form-components.html">
-                        <span class="pcoded-micon"><i class="ti-layers"></i><b>UM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Performance Metrics</span>
+                    <a href="{{ route('admin.caregiver.performance') }}">
+                        <span class="pcoded-micon"><i class="ti-pulse"></i><b>PM</b></span>
+                        <span class="pcoded-mtext">Performance Metrics</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
             </ul>
-            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Appointments</div>
+
+            <!-- Appointments -->
+            <div class="pcoded-navigatio-lavel">Appointments</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    <a href="form-elements-component.html">
-                        <span class="pcoded-micon"><i class="ti-settings"></i><b>S</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Upcoming Appointments</span>
+                    <a href="{{ route('admin.appointments.upcoming') }}">
+                        <span class="pcoded-micon"><i class="ti-calendar"></i><b>UA</b></span>
+                        <span class="pcoded-mtext">Upcoming Appointments</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="bs-basic-table.html">
-                        <span class="pcoded-micon"><i class="ti-user"></i><b>UM</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Appointment History</span>
+                    <a href="{{ route('admin.appointments.history') }}">
+                        <span class="pcoded-micon"><i class="ti-time"></i><b>AH</b></span>
+                        <span class="pcoded-mtext">Appointment History</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="form-components.html">
-                        <span class="pcoded-micon"><i class="ti-help"></i><b>H</b></span>
-                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Schedue New</span>
+                    <a href="{{ route('admin.appointments.create') }}">
+                        <span class="pcoded-micon"><i class="ti-plus"></i><b>NA</b></span>
+                        <span class="pcoded-mtext">Schedule New</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
             </ul>
- --}}
 
-        {{-- Dashboard --}}
-        <a href="{{ route('admin.dashboard') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition">
-            <i class="ti-home mr-3 text-indigo-600"></i> Dashboard
-        </a>
+            <!-- Wellness Monitoring -->
+            <div class="pcoded-navigatio-lavel">Wellness</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li>
+                    {{-- <a href="{{ route('admin.wellness.checkins') }}"> --}}
+                    <span class="pcoded-micon"><i class="ti-check-box"></i><b>WC</b></span>
+                    <span class="pcoded-mtext">Daily Check-ins</span>
+                    <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li>
+                    {{-- <a href="{{ route('admin.wellness.alerts') }}"> --}}
+                    <span class="pcoded-micon"><i class="ti-alert"></i><b>AL</b></span>
+                    <span class="pcoded-mtext">Alerts</span>
+                    <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
 
-        <div class="pt-4 text-xs text-gray-400 uppercase tracking-wider">Manage</div>
+            <!-- Reports -->
+            <div class="pcoded-navigatio-lavel">Reports & Settings</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li>
+                    {{-- <a href="{{ route('admin.reports.index') }}"> --}}
+                    <span class="pcoded-micon"><i class="ti-clipboard"></i><b>RP</b></span>
+                    <span class="pcoded-mtext">Reports</span>
+                    <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li>
+                    {{-- <a href="{{ route('admin.settings.profile') }}"> --}}
+                    <span class="pcoded-micon"><i class="ti-settings"></i><b>ST</b></span>
+                    <span class="pcoded-mtext">Settings</span>
+                    <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
 
-        {{-- Elders --}}
-        {{-- <a href="{{ route('admin.elders.index') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-user mr-3 text-indigo-600"></i> Elders
-        </a>
-
-        {{-- Caregivers --}}
-        {{-- <a href="{{ route('admin.caregivers.index') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-id-badge mr-3 text-indigo-600"></i> Caregivers
-        </a>
-
-        {{-- Appointments --}}
-        {{-- <a href="{{ route('admin.appointments.index') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-calendar mr-3 text-indigo-600"></i> Appointments
-        </a>
-
-        <div class="pt-4 text-xs text-gray-400 uppercase tracking-wider">Insights</div>
-
-        {{-- Wellness --}}
-        {{-- <a href="{{ route('admin.wellness.index') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-bar-chart mr-3 text-indigo-600"></i> Wellness
-        </a>
-
-        {{-- Tickets --}}
-        {{-- <a href="{{ route('admin.tickets.index') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-comment-alt mr-3 text-indigo-600"></i> Tickets
-        </a>
-
-        {{-- Reports --}}
-        {{-- <a href="{{ route('admin.reports.index') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-pie-chart mr-3 text-indigo-600"></i> Reports
-        </a>
-
-        <div class="pt-4 text-xs text-gray-400 uppercase tracking-wider">Settings</div>
-
-        {{-- System Settings --}}
-        {{-- <a href="{{ route('admin.settings') }}" class="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 transition"> --}}
-            <i class="ti-settings mr-3 text-indigo-600"></i> System
-        </a>
-
-        {{-- Logout --}}
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="w-full text-left flex items-center px-3 py-2 rounded-md hover:bg-red-50 text-red-600 transition">
-                <i class="ti-power-off mr-3"></i> Logout
-            </button>
-        </form>
+            <!-- Logout -->
+            <ul class="pcoded-item pcoded-left-item">
+                <li>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="pcoded-micon"><i class="ti-power-off"></i><b>L</b></span>
+                        <span class="pcoded-mtext">Logout</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
 
         </div>
     </nav>
-                        <div class="pcoded-content">
-                        <div class="pcoded-inner-content">
 
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <!-- Page-header start -->
-                                    <div class="page-header card">
-                                        <div class="row align-items-end">
-                                            <div class="col-lg-8">
-                                                <div class="page-header-title">
-                                                    <i class="icofont icofont-chart-bar-graph bg-c-blue"></i>
-                                                    <div class="d-inline">
-                                                        <h4>Morris Chart</h4>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="page-header-breadcrumb">
-                                                    <ul class="breadcrumb-title">
-                                                        <li class="breadcrumb-item">
-                                                            <a href="index.html">
-                                                                <i class="icofont icofont-home"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Charts</a>
-                                                        </li>
-                                                        <li class="breadcrumb-item"><a href="#">Morris Chart</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Page-header end -->
-
-                                    <div class="page-body">
-                                        <div class="row">
-                                            <!-- SITE VISIT CHART start -->
-                                            <div class="col-md-12 col-lg-6">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Site visit chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="morris-site-visit"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- SITE VISIT CHART Ends -->
-                                            <!-- Bar Chart start -->
-                                            <div class="col-md-12 col-lg-6">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Bar chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="morris-bar-chart"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Bar Chart Ends -->
-                                            <!-- EXTRA AREA CHART start -->
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Extra area chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="morris-extra-area"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- EXTRA AREA CHART Ends -->
-                                            <!-- Area Chart start -->
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Area chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="area-example"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Area Chart Ends -->
-                                            <!-- LINE CHART start -->
-                                            <div class="col-md-12 col-lg-6">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Line chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="line-example"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- LINE CHART Ends -->
-                                            <!-- Donut chart start -->
-                                            <div class="col-md-12 col-lg-6">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Donut chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="donut-example"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Donut chart Ends -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="styleSelector">
-
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="page-body">
+                <div class="row">
+                    <!-- Stats Cards -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card bg-c-blue order-card">
+                            <div class="card-block">
+                                <h6 class="m-b-20">Total Elders</h6>
+                                <h2 class="text-right"><i class="ti-user f-left"></i><span>{{ $totalElders }}</span>
+                                </h2>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card bg-c-green order-card">
+                            <div class="card-block">
+                                <h6 class="m-b-20">Caregivers</h6>
+                                <h2 class="text-right"><i
+                                        class="ti-user f-left"></i><span>{{ $totalCaregivers }}</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card bg-c-yellow order-card">
+                            <div class="card-block">
+                                <h6 class="m-b-20">Appointments Today</h6>
+                                <h2 class="text-right"><i
+                                        class="ti-calendar f-left"></i><span>{{ $appointmentsToday }}</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card bg-c-pink order-card">
+                            <div class="card-block">
+                                <h6 class="m-b-20">Pending Requests</h6>
+                                <h2 class="text-right"><i class="ti-alert f-left"></i><span>3</span></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Elders Table -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Recent Elders</h5>
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Status</th>
+                                                <th>Joined</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ($recentElders as $elder)
+                                                <tr>
+                                                    <td>{{ $elder->name }}</td>
+                                                    <td>{{ $elder->age ?? '-' }}</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge badge-{{ $elder->status == 'active' ? 'success' : 'warning' }}">
+                                                            {{ ucfirst($elder->status) }}
+                                                        </span>
+                                                    </td>
+                                                    <td>{{ $elder->created_at->format('Y-m-d') }}</td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="4">No recent elders found.</td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caregivers Assignment -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Caregivers Assignment</h5>
+                            </div>
+                            <div class="card-block">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Caregiver Name</th>
+                                                <th>Assigned Elders</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{-- @forelse ($caregivers as $caregiver)
+                                                <tr>
+                                                    <td>{{ $caregiver->name }}</td>
+                                                    <td>{{ $caregiver->elders_count }}</td>
+                                                    <td>
+                                                        <span class="badge badge-{{ $caregiver->status == 'active' ? 'success' : 'warning' }}">
+                                                            {{ ucfirst($caregiver->status) }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <tr><td colspan="3">No caregivers found.</td></tr>
+                                            @endforelse --}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Charts Section-->
+                    <div class="row mt-4">
+                        <!-- Elder Wellness Trend Chart -->
+                        <div class="col-md-12 col-lg-6 mb-4">
+                            <div class="card shadow-sm border-0">
+                                <div
+                                    class="card-header bg-c-blue text-white d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <h5 class="mb-0">📈 Elder Wellness Trends</h5>
+                                        <span>Weekly average wellness scores</span>
+                                    </div>
+                                    <i class="ti-bar-chart"></i>
+                                </div>
+                                <div class="card-block p-4" style="background: #f8fafc;">
+                                    <canvas id="elder-wellness-chart" style="height: 300px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Appointment Trends Chart -->
+                        <div class="col-md-12 col-lg-6 mb-4">
+                            <div class="card shadow-sm border-0">
+                                <div
+                                    class="card-header bg-c-green text-white d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <h5 class="mb-0">📊 Appointment Trends</h5>
+                                        <span>Appointments in the last 7 days</span>
+                                    </div>
+                                    <i class="ti-calendar"></i>
+                                </div>
+                                <div class="card-block p-4" style="background: #f8fafc;">
+                                    <canvas id="appointments-chart" style="height: 300px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Elder Wellness Chart
+        const wellnessCtx = document.getElementById('elder-wellness-chart').getContext('2d');
+        new Chart(wellnessCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Average Score',
+                    data: [72, 74, 78, 70, 76, 80, 77],
+                    backgroundColor: 'rgba(0, 150, 136, 0.2)',
+                    borderColor: '#009688',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                }]
+            }
+        });
+
+        // Appointment Chart
+        const appointmentCtx = document.getElementById('appointments-chart').getContext('2d');
+        new Chart(appointmentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: '# of Appointments',
+                    data: [5, 3, 7, 4, 6, 2, 5],
+                    backgroundColor: '#FFC107'
+                }]
+            }
+        });
+    </script>
+@endpush

@@ -62,23 +62,36 @@
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="{{ url('/') }}">Home</a>
+				<a class="nav-link" href="{{ url('/') }}">@lang('messages.home')</a>
 			  </li>
-			   <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-			    <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
-			    <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Login/Register</a></li>
-
-                {{-- <div class="language-switcher">
-                    <a href="{{ route('lang.switch', 'en') }}">
-                        <img src="/flags/en.png" alt="English" style="width:24px;">
-                    </a>
-                    <a href="{{ route('lang.switch', 'sw') }}">
-                        <img src="/flags/sw.png" alt="Swahili" style="width:24px;">
-                    </a>
-                </div> --}}
-
+			   <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">@lang('messages.about')</a></li>
+			    <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">@lang('messages.service')</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/blog') }}">@lang('messages.blog')</a></li>
+			    <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">@lang('messages.contact')</a></li>
+              <div class="d-flex"> <a href="{{ url('/dashboard') }}" class="btn btn-main-2 btn-icon">@lang('messages.login')</a></div>
+                <div class="dropdown ms-3 d-none d-lg-flex">
+                    <button class="btn btn-sm bg-white dropdown-toggle d-flex align-items-center" type="button"
+                        id="languageDropdownLg" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img id="selectedFlagLg" src="https://flagcdn.com/w40/us.png" alt="English"
+                            width="25" class="me-1">
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdownLg">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="locale/en"
+                                onclick="changeLanguage('en')">
+                                <img src="https://flagcdn.com/w40/us.png" alt="English" width="20"
+                                    class="me-2"> Eng
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="locale/sw"
+                                onclick="changeLanguage('sw')">
+                                <img src="https://flagcdn.com/w40/tz.png" alt="Swahili" width="20"
+                                    class="me-2"> Swa
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 			</ul>
 		  </div>
 		</div>
@@ -125,30 +138,32 @@
 </section>
 
 <section class="section blog-wrap">
-    <div class="container">
+    <div class="container" style="max-width: 1000px">
         <div class="row">
             <!-- Blog Content -->
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col-lg-12 mb-5">
                         <div class="single-blog-item">
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded shadow mb-4">
                             <div class="blog-item-content mt-4">
                                 <div class="blog-item-meta mb-3">
                                     <span class="text-muted mr-3">
-                                        {{-- <i class="icofont-folder mr-2"></i>{{ $post->category->name }} --}}
+                                        {{-- <i class="icofont-folder mr-1"></i>{{ $post->category->name }} --}}
                                     </span>
                                     <span class="text-muted mr-3">
-                                        <i class="icofont-calendar mr-2"></i>{{ $post->created_at->format('M d, Y') }}
+                                        <i class="icofont-calendar mr-1"></i>{{ $post->created_at->format('M d, Y') }}
                                     </span>
                                     <span class="text-muted">
-                                        <i class="icofont-comment mr-2"></i>{{ $post->comments->count() }} Comments
+                                        <i class="icofont-comment mr-1"></i>{{ $post->comments->count() }} Comments
                                     </span>
                                 </div>
 
                                 <h2 class="mb-4">{{ $post->title }}</h2>
 
-                                <p>{!! nl2br(e($post->content)) !!}</p>
+                                <p class="lead" style="line-height: 1.8;">
+                                    {!! nl2br(e($post->content)) !!}
+                                </p>
 
                                 {{-- @if($post->tags->count())
                                     <div class="tag-option mt-4 mb-4">
@@ -174,23 +189,67 @@
 
                     <!-- Comments Section -->
                     <div class="col-lg-12">
-                        <div class="comment-area mt-4 mb-5">
+                        {{-- <div class="comment-area mt-4 mb-5">
                             <h4 class="mb-4">{{ $post->comments->count() }} Comments</h4>
 
                             @foreach ($post->comments as $comment)
                                 <div class="media mb-4">
-                                    <img src="{{ asset('images/blog/user.jpg') }}" class="mr-3 rounded-circle" alt="User" width="50">
+                                    <img src="{{ asset('images/blog/user.jpg') }}" class="mr-3 rounded-circle border" alt="User" width="50" height="50">
                                     <div class="media-body">
-                                        <h6 class="mt-0">{{ $comment->name }}</h6>
-                                        <small class="text-muted">{{ $comment->created_at->format('M d, Y') }}</small>
-                                        <p class="mt-2">{{ $comment->comment }}</p>
+                                        <h6 class="mt-0 mb-1 font-weight-bold">{{ $comment->name }}</h6>
+                                        <small class="text-muted d-block mb-1">{{ $comment->created_at->format('M d, Y') }}</small>
+                                        <p class="mb-0">{{ $comment->comment }}</p>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
 
                         <!-- Comment Form -->
-                        <div class="comment-form bg-light p-4 rounded">
+                        <div class="comment-form bg-light p-4 rounded shadow-sm">
+                            <h4 class="mb-3">Leave a Comment</h4>
+                            <form action="{{ route('comments.store', $post->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+
+                                <div class="form-group">
+                                    <input name="name" type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="email" type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea name="comment" rows="5" class="form-control" placeholder="Your Comment" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-main btn-round-full">Post Comment</button>
+                            </form>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="col-lg-12">
+                        <div class="comment-area mt-4 mb-5">
+                            <h4 class="mb-4">{{ $post->comments->count() }} Comments</h4>
+
+                            @foreach ($post->comments as $comment)
+                                <div class="media mb-4">
+                                    <img src="{{ asset('images/blog/user.jpg') }}" class="mr-3 rounded-circle border" alt="User" width="50" height="50">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 mb-1 font-weight-bold">{{ $comment->name }}</h6>
+                                        <small class="text-muted d-block mb-1">{{ $comment->created_at->format('M d, Y') }}</small>
+                                        <p class="mb-0">{{ $comment->comment }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Comment Form -->
+                        <div class="comment-form bg-light p-4 rounded shadow-sm">
                             <h4 class="mb-3">Leave a Comment</h4>
                             <form action="{{ route('comments.store', $post->id) }}" method="POST">
                                 @csrf
@@ -212,12 +271,110 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                {{-- @include('blog.partials.sidebar') --}}
+
+
+                {{-- <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
+	                <div class="sidebar-widget search  mb-3 ">
+		                <h5>Search Here</h5>
+                        <form action="{{ route('blog') }}" method="GET" class="mb-4">
+                            <div class="input-group">
+                                <input type="text" name="query" class="form-control" placeholder="Search for posts..." value="{{ request('query') }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-main btn-round-full" type="submit">Search</button>
+                                </div>
+                            </div>
+                            {{-- <input type="text" name="query" class="form-control" placeholder="search"> --}}
+                            {{-- <i class="ti-search"></i> --}
+                        </form>
+	                </div>
+
+
+	                <div class="sidebar-widget latest-post mb-3">
+		                {{-- <h5>Popular Posts</h5> --}}
+                        {{-- @foreach($popularPosts as $popular)
+                            <div class="py-2">
+                                <span class="text-sm text-muted">{{ $popular->created_at->format('d M Y') }}</span>
+                                <h6 class="my-2"><a href="{{ route('blog.show', $popular->id) }}">{{ $popular->title }}</a></h6>
+                            </div>
+                        @endforeach --}
+	                </div>
+
+	                {{-- <div class="sidebar-widget category mb-3">
+		                <h5 class="mb-4">Categories</h5>
+
+		                <ul class="list-unstyled">
+                            @foreach($categories as $category)
+                                <li><a href="{{ route('blog.category', $category->id) }}">{{ $category->name }} ({{ $category->posts_count }})</a></li>
+                            @endforeach
+
+		                {{-- <li class="align-items-center">
+		                    <a href="#">Medicine</a>
+		                    <span>(14)</span>
+		                </li>
+		                <li class="align-items-center">
+		                    <a href="#">Equipments</a>
+		                    <span>(2)</span>
+		                </li>
+		                <li class="align-items-center">
+		                    <a href="#">Heart</a>
+		                    <span>(10)</span>
+		                </li>
+		                <li class="align-items-center">
+		                    <a href="#">Free counselling</a>
+		                    <span>(5)</span>
+		                </li>
+		                <li class="align-items-center">
+		                    <a href="#">Lab test</a>
+		                    <span>(5)</span>
+		                </li> --}
+		                </ul>
+	                </div> --}}
+
+
+	                {{-- <div class="sidebar-widget tags mb-3">
+		                <h5 class="mb-4">Tags</h5>
+                            {{-- @foreach($tags as $tag)
+                                <li><a href="{{ route('blog.tag', $tag->slug) }}">{{ $tag->name }}</a></li>
+                            @endforeach --}}
+
+
+		                {{-- <a href="#">Doctors</a>
+		                <a href="#">agency</a>
+		                <a href="#">company</a>
+		                <a href="#">medicine</a>
+		                <a href="#">surgery</a>
+		                <a href="#">Marketing</a>
+		                <a href="#">Social Media</a>
+		                <a href="#">Branding</a>
+		                <a href="#">Laboratory</a> --}
+	                </div> --}
+
+
+	                <div class="sidebar-widget schedule-widget mb-3">
+		                <h5 class="mb-4">Time Schedule</h5>
+
+		                <ul class="list-unstyled">
+		                    <li class="d-flex justify-content-between align-items-center">
+		                        <a href="#">Monday - Friday</a>
+		                        <span>8:00 - 17:00</span>
+		                    </li>
+		                    <li class="d-flex justify-content-between align-items-center">
+		                        <a href="#">Saturday</a>
+		                        <span>9:00 - 17:00</span>
+		                    </li>
+                            <li class="d-flex justify-content-between align-items-center">
+		                    <a href="#">Sunday</a>
+		                    <span>10:00 - 17:00</span>
+		                    </li>
+		                </ul>
+
+		                <div class="sidebar-contatct-info mt-4">
+			                <p class="mb-0">Need Urgent Help?</p>
+			                <h3>+255-7153-03510</h3>
+		                </div>
+	                </div>
+                </div> --}}
             </div>
         </div>
     </div>

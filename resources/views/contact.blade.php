@@ -155,9 +155,9 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-title text-center">
-                    <h2 class="text-md mb-2">Contact us</h2>
+                    <h2 class="text-md mb-2">@lang('messages.contact_us')</h2>
                     <div class="divider mx-auto my-4"></div>
-                    <p class="mb-5">Have questions about our wellness programs or need support? We’re here to help you on your journey to healthy aging—reach out anytime.</p>
+                    <p class="mb-5">@lang('messages.contact_us_explanation')</p>
                 </div>
             </div>
         </div>
@@ -202,7 +202,7 @@
                     </div>
 
                     <div class="text-center">
-                        <input class="btn btn-main btn-round-full" name="submit" type="submit" value="Send Messege"></input>
+                        <input class="btn btn-main btn-round-full" name="submit" type="submit" value="@lang('messages.send_message')"></input>
                     </div>
                 </form>
             </div>
@@ -213,7 +213,11 @@
 
  <div class="google-map ">
     <div id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7654.970864099021!2d39.28224572757519!3d-6.818124859368682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0e3e329621%3A0x4fe0c5f78d8e3de9!2sGeneral%20Post%20Office!5e1!3m2!1sen!2stz!4v1744891629590!5m2!1sen!2stz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.110394422777!2d39.28193717585141!3d-6.818137567412491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0e3e329621%3A0x4fe0c5f78d8e3de9!2sGeneral%20Post%20Office!5e0!3m2!1sen!2stz!4v1744891629590!5m2!1sen!2stz"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
 </div>
 <!-- footer Start -->
@@ -230,8 +234,8 @@
 					<ul class="list-inline footer-socials mt-4">
 						<li class="list-inline-item"><a href=""><i class="icofont-facebook"></i></a></li>
 						<li class="list-inline-item"><a href=""><i class="icofont-twitter"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="icofont-linkedin"></i></a></li>
-                        <li class="list-inline-item"><a href=""><i class="icofont-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.linkedin.com/company/novage-care/"><i class="icofont-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/novagecare?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="icofont-instagram"></i></a></li>
                         <li class="list-inline-item"><a href=""><i class="icofont-youtube-play"></i></a></li>
                         <li class="list-inline-item"><a href="https://wa.me/+255715303510" target="_blank"><i class="icofont-whatsapp"></i></a></li>
 					</ul>

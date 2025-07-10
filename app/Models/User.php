@@ -54,4 +54,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Appointment::class);
     }
+
+    //caregiver performance
+    public function performance()
+    {
+        return $this->hasOne(CaregiverPerformance::class, 'caregiver_id');
+    }
+
+    public function wellness()
+    {
+        return $this->hasMany(Wellness::class, 'caregiver_id');
+    }
+
 }

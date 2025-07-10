@@ -23,6 +23,10 @@ class ProfileController extends Controller
             return redirect()->route('elder.dashboard');
         }
 
+        // if ($user->role === 'caregiver') {
+        //     return redirect()->route('caregiver.dashboard');
+        // }
+
         // Deny access for any other role
         abort(403, 'Unauthorized action.');
     }

@@ -165,41 +165,42 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="feature-block d-lg-flex">
-                        <div class="feature-item mb-5 mb-lg-0">
-                            <div class="feature-icon mb-4">
-                                <i class="icofont-surgeon-alt"></i>
-                            </div>
-                            <span>@lang('messages.hour_service')</span>
-                            <h4 class="mb-3">@lang('messages.online_appointment')</h4>
-                            <p class="mb-4">@lang('messages.get_aLL_time_support_for_emergency')</p>
-                            {{-- <a href="appoinment.html" class="btn btn-main btn-round-full">@lang('messages.make_appointment')</a> --}}
-                        </div>
+    <!-- Merged Emergency & Appointment Card -->
+    <div class="feature-item mb-5 mb-lg-0">
+        <div class="feature-icon mb-4">
+            <i class="icofont-ui-call"></i>
+        </div>
+        <span>@lang('messages.around_the_clock_support')</span>
+        <h4 class="mb-3">@lang('messages.emergency_and_appointment')</h4>
+        <p class="mb-2">@lang('messages.call_us_anytime')</p>
+        <h5 class="text-success">+255-7153-03510</h5>
+    </div>
 
-                        <div class="feature-item mb-5 mb-lg-0">
-                            <div class="feature-icon mb-4">
-                                <i class="icofont-ui-clock"></i>
-                            </div>
-                            <span>@lang('messages.timing_schedule')</span>
-                            <h4 class="mb-3">@lang('messages.working_hours')</h4>
-                            <ul class="w-hours list-unstyled">
-                                <li class="d-flex justify-content-between">@lang('messages.monday_to_friday') : <span>8:00 -
-                                        17:00</span></li>
-                                <li class="d-flex justify-content-between">@lang('messages.saturday') : <span>9:00 -
-                                        17:00</span></li>
-                                <li class="d-flex justify-content-between">@lang('messages.sunday') : <span>10:00 -
-                                        17:00</span></li>
-                            </ul>
-                        </div>
+    <!-- Working Hours -->
+    <div class="feature-item mb-5 mb-lg-0">
+        <div class="feature-icon mb-4">
+            <i class="icofont-ui-clock"></i>
+        </div>
+        <span>@lang('messages.timing_schedule')</span>
+        <h4 class="mb-3">@lang('messages.working_hours')</h4>
+        <ul class="w-hours list-unstyled">
+            <li class="d-flex justify-content-between">@lang('messages.monday_to_friday') : <span>8:00 - 17:00</span></li>
+            <li class="d-flex justify-content-between">@lang('messages.saturday') : <span>9:00 - 17:00</span></li>
+            <li class="d-flex justify-content-between">@lang('messages.sunday') : <span>10:00 - 17:00</span></li>
+        </ul>
+    </div>
 
-                        <div class="feature-item mb-5 mb-lg-0">
-                            <div class="feature-icon mb-4">
-                                <i class="icofont-support"></i>
-                            </div>
-                            <span>@lang('messages.emergency_cases')</span>
-                            <h4 class="mb-3">+255-7153-03510</h4>
-                            <p>@lang('messages.emergency_cases_text')</p>
-                        </div>
-                    </div>
+    <!-- New Informational Card -->
+    <div class="feature-item mb-5 mb-lg-0">
+        <div class="feature-icon mb-4">
+            <i class="icofont-leaf"></i>
+        </div>
+        <span>@lang('messages.wellness_insights')</span>
+        <h4 class="mb-3">@lang('messages.healthy_aging_tips')</h4>
+        <p>@lang('messages.latest_tips_for_elder_health')</p>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
