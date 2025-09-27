@@ -97,17 +97,17 @@
             <div class="pcoded-navigatio-lavel">Wellness</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    {{-- <a href="{{ route('admin.wellness.checkins') }}"> --}}
-                    <span class="pcoded-micon"><i class="ti-check-box"></i><b>WC</b></span>
-                    <span class="pcoded-mtext">Daily Check-ins</span>
-                    <span class="pcoded-mcaret"></span>
+                    <a href="{{ route('admin.wellness.checkins') }}">
+                        <span class="pcoded-micon"><i class="ti-check-box"></i><b>WC</b></span>
+                        <span class="pcoded-mtext">Daily Check-ins</span>
+                        <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    {{-- <a href="{{ route('admin.wellness.alerts') }}"> --}}
-                    <span class="pcoded-micon"><i class="ti-alert"></i><b>AL</b></span>
-                    <span class="pcoded-mtext">Alerts</span>
-                    <span class="pcoded-mcaret"></span>
+                    <a href="{{ route('admin.wellness.alerts') }}">
+                        <span class="pcoded-micon"><i class="ti-alert"></i><b>AL</b></span>
+                        <span class="pcoded-mtext">Alerts</span>
+                        <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
             </ul>
@@ -116,17 +116,17 @@
             <div class="pcoded-navigatio-lavel">Reports & Settings</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    {{-- <a href="{{ route('admin.reports.index') }}"> --}}
-                    <span class="pcoded-micon"><i class="ti-clipboard"></i><b>RP</b></span>
-                    <span class="pcoded-mtext">Reports</span>
-                    <span class="pcoded-mcaret"></span>
+                    <a href="{{ route('admin.reports.index') }}">
+                        <span class="pcoded-micon"><i class="ti-clipboard"></i><b>RP</b></span>
+                        <span class="pcoded-mtext">Reports</span>
+                        <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    {{-- <a href="{{ route('admin.settings.profile') }}"> --}}
-                    <span class="pcoded-micon"><i class="ti-settings"></i><b>ST</b></span>
-                    <span class="pcoded-mtext">Settings</span>
-                    <span class="pcoded-mcaret"></span>
+                    <a href="{{ route('admin.settings.profile') }}">
+                        <span class="pcoded-micon"><i class="ti-settings"></i><b>ST</b></span>
+                        <span class="pcoded-mtext">Settings</span>
+                        <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
             </ul>

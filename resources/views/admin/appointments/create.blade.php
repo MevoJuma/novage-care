@@ -1,6 +1,6 @@
 <x-app-layout>
 
-            <nav class="pcoded-navbar">
+    <nav class="pcoded-navbar">
         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
         <div class="pcoded-inner-navbar main-menu">
 
@@ -98,14 +98,14 @@
             <div class="pcoded-navigatio-lavel">Wellness</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    {{-- {{-- <a href="{{ route('admin.wellness.checkins') }}"> --}} 
+                    {{-- <a href="{{ route('admin.wellness.checkins') }}">
                         <span class="pcoded-micon"><i class="ti-check-box"></i><b>WC</b></span>
                         <span class="pcoded-mtext">Daily Check-ins</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    {{-- <a href="{{ route('admin.wellness.alerts') }}"> --}}
+                    <a href="{{ route('admin.wellness.alerts') }}">
                     <span class="pcoded-micon"><i class="ti-alert"></i><b>AL</b></span>
                     <span class="pcoded-mtext">Alerts</span>
                     <span class="pcoded-mcaret"></span>
@@ -117,14 +117,14 @@
             <div class="pcoded-navigatio-lavel">Reports & Settings</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
-                    {{-- <a href="{{ route('admin.reports.index') }}"> --}}
+                    <a href="{{ route('admin.reports.index') }}">
                     <span class="pcoded-micon"><i class="ti-clipboard"></i><b>RP</b></span>
                     <span class="pcoded-mtext">Reports</span>
                     <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li>
-                    {{-- <a href="{{ route('admin.settings.profile') }}"> --}}
+                    <a href="{{ route('admin.settings.profile') }}">
                     <span class="pcoded-micon"><i class="ti-settings"></i><b>ST</b></span>
                     <span class="pcoded-mtext">Settings</span>
                     <span class="pcoded-mcaret"></span>
@@ -151,58 +151,61 @@
     </nav>
 
     <div class="pcoded-content">
-    <div class="pcoded-inner-content">
-        <div class="main-body">
-            <div class="page-wrapper">
-                <div class="page-header">
-                    <h5 class="m-b-10">Schedule New Appointment</h5>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('admin.appointments.store') }}">
-                            @csrf
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="page-header">
+                        <h5 class="m-b-10">Schedule New Appointment</h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('admin.appointments.store') }}">
+                                @csrf
 
-                            <div class="mb-3">
-                                <label for="elder_id">Select Elder</label>
-                                <select name="elder_id" id="elder_id" class="form-control" required>
-                                    <option value="">Choose Elder</option>
-                                    @foreach($elders as $elder)
-                                        <option value="{{ $elder->id }}">{{ $elder->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="elder_id">Select Elder</label>
+                                    <select name="elder_id" id="elder_id" class="form-control" required>
+                                        <option value="">Choose Elder</option>
+                                        @foreach ($elders as $elder)
+                                            <option value="{{ $elder->id }}">{{ $elder->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="caregiver_id">Select Caregiver</label>
-                                <select name="caregiver_id" id="caregiver_id" class="form-control" required>
-                                    <option value="">Choose Caregiver</option>
-                                    @foreach($caregivers as $caregiver)
-                                        <option value="{{ $caregiver->id }}">{{ $caregiver->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="caregiver_id">Select Caregiver</label>
+                                    <select name="caregiver_id" id="caregiver_id" class="form-control" required>
+                                        <option value="">Choose Caregiver</option>
+                                        @foreach ($caregivers as $caregiver)
+                                            <option value="{{ $caregiver->id }}">{{ $caregiver->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="date">Date</label>
-                                <input type="date" name="date" id="date" class="form-control" required>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="date">Date</label>
+                                    <input type="date" name="date" id="date" class="form-control"
+                                        required>
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="time">Time</label>
-                                <input type="time" name="time" id="time" class="form-control" required>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="time">Time</label>
+                                    <input type="time" name="time" id="time" class="form-control"
+                                        required>
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="status">Status</label>
-                                <input type="text" name="status" id="status" class="form-control" required>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="status">Status</label>
+                                    <input type="text" name="status" id="status" class="form-control"
+                                        required>
+                                </div>
 
-                            <button type="submit" class="btn btn-primary">Create Appointment</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary">Create Appointment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </x-app-layout>

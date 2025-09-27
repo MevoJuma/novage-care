@@ -35,16 +35,7 @@ class ElderController extends Controller
 
     public function index(Request $request)
     {
-        // Fetch all elders from the database
-
-        $elders = user::all();
-        // $elders = user::where('role', 'elder')->get();
-
-        //  $appointments = Appointment::where('elder_id', $elders->id())
-        //      ->orderBy('date', 'asc')
-        //      ->take(5)
-        //      ->get();
-
+        // Build query for elders with filters
         $query = User::role('elder');
         if($request->filled('search')){
             $query->where(function($q) use ($request) {
@@ -54,7 +45,7 @@ class ElderController extends Controller
         }
 
         if ($request->filled('status')) {
-        $query->where('status', $request->status);
+            $query->where('status', $request->status);
         }
 
         if ($request->filled('joined_after')) {
@@ -65,7 +56,9 @@ class ElderController extends Controller
             $query->whereDate('created_at', '<=', $request->joined_before);
         }
 
-        // Return the view with the list of elders
+        // Paginate results for the view
+        $elders = $query->paginate(10);
+
         return view('admin.elder.index',compact(
             'elders'
         ));
@@ -82,7 +75,7 @@ class ElderController extends Controller
     public function reports()
     {
         // Fetch all elders from the database
-        $elders = User::role('elder')->get();
+        $elders = User::role('elder')->paginate(10);
 
         // Return the view with the list of elders
         return view('admin.elder.reports');

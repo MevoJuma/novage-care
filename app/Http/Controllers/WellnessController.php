@@ -69,4 +69,24 @@ class WellnessController extends Controller
     {
         //
     }
+
+    /**
+     * Display the wellness check-ins.
+     */
+    public function checkins()
+    {
+        // Fetch all wellness check-ins and pass them to the view
+        $checkins = Wellness::all(); // Adjust this to fetch the relevant check-in data
+        return view('admin.wellness.checkins', compact('checkins'));
+    }
+
+    /**
+     * Display wellness alerts.
+     */
+    public function alerts()
+    {
+        // Fetch all wellness alerts and pass them to the view
+        $alerts = Wellness::where('alert', true)->get(); // Adjust this to fetch the relevant alert data
+        return view('admin.wellness.alerts', compact('alerts'));
+    }
 }

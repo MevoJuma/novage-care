@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -16,15 +17,15 @@ class PostController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->paginate(4);
         $popularPosts = Post::orderBy('created_at', 'desc')->take(3)->get();
         $categories = \App\Models\Category::withCount('posts')
-                        ->orderBy('posts_count', 'desc')
-                        ->take(5)
-                        ->get();
+            ->orderBy('posts_count', 'desc')
+            ->take(5)
+            ->get();
 
         $query = request()->input('query');
         $posts = Post::where('title', 'like', '%' . $query . '%')
-                        ->orWhere('content', 'like', '%' . $query . '%')
-                        ->latest()
-                        ->paginate(10);
+            ->orWhere('content', 'like', '%' . $query . '%')
+            ->latest()
+            ->paginate(10);
 
         return view('blog', compact('posts', 'popularPosts', 'query', 'categories'));
     }
@@ -40,26 +41,29 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-            $request->validate([
-                'title' => 'required',
-                'content' => 'required',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]);
+        $validated = $request->validated();
 
-            $imagePath = null;
-            if ($request->hasFile('image')) {
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            try {
                 $imagePath = $request->file('image')->store('blog_images', 'public');
+            } catch (\Exception $e) {
+                return back()->withErrors(['image' => 'Image upload failed.']);
             }
+        }
 
-            Post::create([
-                'title' => $request->title,
-                'content' => $request->content,
-                'image' => $imagePath,
-            ]);
+        $post = new Post([
+            'image' => $imagePath,
+            'title' => json_encode($validated['title']),
+            'content' => json_encode($validated['content']),
+            'user_id' => $request->user()->id,
+        ]);
 
-            return redirect()->back()->with('success', 'Blog post created successfully!');
+        $post->save();
+
+        return redirect()->route('blog.index')->with('success', 'Blog post published!');
     }
 
     /**
@@ -68,7 +72,7 @@ class PostController extends Controller
     public function show(String $id)
     {
         // $post = Post::findOrFail($id);
-        $post = Post::with(['comments'])->where('id',$id)->findOrFail($id);
+        $post = Post::with(['comments'])->where('id', $id)->findOrFail($id);
         return view('blog.show', compact('post'));
     }
 
@@ -102,9 +106,9 @@ class PostController extends Controller
     {
         $query = $request->input('query');
         $posts = Post::where('title', 'like', '%' . $query . '%')
-                        ->orWhere('content', 'like', '%' . $query . '%')
-                        ->latest()
-                        ->paginate(10);
+            ->orWhere('content', 'like', '%' . $query . '%')
+            ->latest()
+            ->paginate(10);
 
         return view('blog.search', compact('posts', 'query'));
     }
@@ -118,9 +122,9 @@ class PostController extends Controller
         $posts = $category->posts()->latest()->paginate(10);
         $popularPosts = Post::withCount('comments')->orderBy('comments_count', 'desc')->take(3)->get();
         $categories = \App\Models\Category::withCount('posts')
-                        ->orderBy('posts_count', 'desc')
-                        ->take(5)
-                        ->get();
+            ->orderBy('posts_count', 'desc')
+            ->take(5)
+            ->get();
 
         return view('blog', compact('posts', 'popularPosts', 'category', 'categories'));
     }

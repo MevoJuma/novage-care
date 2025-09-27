@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
-    protected $fillable = ['title', 'slug', 'content', 'image', 'created_at'];
+    protected $fillable = ['title', 'slug', 'content', 'image', 'user_id', 'category_id'];
+
+    public $translatable = ['title', 'content'];
 
     /**
      * Get the comments for the post.
@@ -28,18 +31,28 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
+    /**
+     * Get the user that owns the post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($post) {
-            $post->slug = static::generateUniqueSlug($post->title);
+            // Use English title for slug, fallback to any available translation
+            $slugSource = $post->getTranslation('title', 'en') ?? $post->title;
+            $post->slug = static::generateUniqueSlug($slugSource);
         });
     }
 
     protected static function generateUniqueSlug($title)
     {
-        $slug = Str::slug($title);
+        $slug = Str::slug((string) $title);
         $originalSlug = $slug;
         $count = 1;
 
@@ -48,5 +61,19 @@ class Post extends Model
         }
 
         return $slug;
+    }
+
+    /**
+     * Get the translations for the post.
+     */
+    public function translations()
+    {
+        return $this->hasMany(PostTranslation::class);
+    }
+
+    public function translation($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        return $this->translations->where('locale', $locale)->first();
     }
 }

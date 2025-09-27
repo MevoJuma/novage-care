@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ElderController;
 use App\Http\Controllers\CaregiverController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\WellnessController;
 
 Route::get('/', function () {
@@ -40,7 +41,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('locale/{lang}',[LocaleController::class, 'setLocale']);
+Route::get('locale/{lang}', [LocaleController::class, 'setLocale']);
 
 
 Route::view('/faq', 'faq')->name('faq');
@@ -66,7 +67,11 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
     Route::get('/appointments/upcoming', [AppointmentController::class, 'index'])->name('appointments.upcoming');
     Route::get('/appointments/history', [AppointmentController::class, 'history'])->name('appointments.history');
     Route::resource('appointments', AppointmentController::class);
+    Route::get('/wellness/checkins', [WellnessController::class, 'checkins'])->name('wellness.checkins');
+    Route::get('/wellness/alerts', [WellnessController::class, 'alerts'])->name('wellness.alerts');
     Route::resource('wellness', WellnessController::class);
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/settings/profile', [ProfileController::class, 'edit'])->name('settings.profile');
 });
 
 
@@ -77,5 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
+// Route::post('/posts', [PostController::class, 'store'])
+//     ->middleware(['auth', 'role:admin'])
+//     ->name('posts.store');
