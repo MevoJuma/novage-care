@@ -1,27 +1,37 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
+@extends('layouts.landing')
 
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
+@section('title', __('Confirm Password') . ' - Novage Care')
 
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
+@section('content')
+<div class="auth-page">
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="auth-card">
+                        <p class="text-secondary mb-4">
+                            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+                        </p>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+                        <form method="POST" action="{{ route('password.confirm') }}">
+                            @csrf
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <div class="form-group">
+                                <label for="password" class="font-weight-bold text-dark">{{ __('Password') }}</label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="••••••••" required autocomplete="current-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="btn btn-main-2 btn-round-full">
+                                {{ __('Confirm') }} <i class="icofont-simple-right ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+</div>
+@endsection

@@ -577,6 +577,15 @@ a:focus {
     }
 }
 
+@media (min-width: 992px) {
+    .banner {
+        min-height: 680px;
+    }
+    .banner .block {
+        padding: 100px 0 180px;
+    }
+}
+
 .about-img img {
     border-radius: 5px;
     box-shadow: 0px 0px 30px 0px rgba(0, 42, 106, 0.1);
@@ -1583,6 +1592,48 @@ hr {
     transition: all 0.3s;
     cursor: pointer;
     opacity: 1;
+}
+
+/* Auth pages (login / register) */
+.auth-page .page-title {
+    padding: 100px 0 60px;
+}
+.auth-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 42, 106, 0.08);
+    padding: 2.5rem 3rem;
+    border: 1px solid #eef2f6;
+}
+.auth-card .form-group {
+    margin-bottom: 1.25rem;
+}
+.auth-card .form-control {
+    height: 50px;
+    border: 1px solid #eef2f6;
+    background: #f4f9fc;
+    padding-left: 1rem;
+}
+.auth-card .form-control:focus {
+    border-color: #066d44;
+    background: #fff;
+}
+.auth-card .divider {
+    margin: 0 auto 1.5rem;
+}
+.auth-card .btn-main-2 {
+    padding: 0.75rem 2rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+.auth-card .text-muted a {
+    color: #066d44;
+    font-weight: 600;
+}
+.auth-card .invalid-feedback,
+.auth-card .text-danger {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

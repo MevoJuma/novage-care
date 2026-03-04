@@ -8,12 +8,17 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Idempotent: skips creation when table already exists (e.g. on hosted DB).
      */
     public function up(): void
     {
+        if (Schema::hasTable('caregiver_performances')) {
+            return;
+        }
+
         Schema::create('caregiver_performances', function (Blueprint $table) {
             $table->id();
-            $table->foreign('caregiver_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('caregiver_id')->constrained('users')->onDelete('cascade');
             $table->integer('appointments_completed')->default(0);
             $table->integer('elders_assigned')->default(0);
             $table->decimal('average_rating', 3, 2)->default(0.00);
