@@ -10,7 +10,7 @@
             <a class="mobile-search morphsearch-search" href="#">
                 <i class="ti-search"></i>
             </a>
-            <a href="{{ route('admin.dashboard') }}">
+            <a href="{{ Auth::check() && Auth::user()->role === 'elder' ? route('elder.dashboard') : route('admin.dashboard') }}">
                 <img class="img-fluid" style="max-height: 45px" src="{{ asset('images/logo.png') }}" alt="Novage Care Logo" />
             </a>
             <a class="mobile-options">

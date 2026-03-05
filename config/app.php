@@ -123,4 +123,17 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Public path is document root (shared hosting)
+    |--------------------------------------------------------------------------
+    |
+    | Set to true when the domain points at the project root (e.g. public_html)
+    | with the contents of public/ merged in, so storage:link creates the
+    | symlink in the right place and /storage/... URLs work for images.
+    |
+    */
+
+    'public_path_is_root' => (bool) env('PUBLIC_PATH_IS_ROOT', false),
+
 ];

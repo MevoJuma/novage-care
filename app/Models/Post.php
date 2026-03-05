@@ -44,8 +44,9 @@ class Post extends Model
         parent::boot();
 
         static::creating(function ($post) {
-            // Use English title for slug, fallback to any available translation
-            $slugSource = $post->getTranslation('title', 'en') ?? $post->title;
+            $slugSource = $post->getTranslation('title', 'en')
+                ?: $post->getTranslation('title', 'sw')
+                ?: 'post';
             $post->slug = static::generateUniqueSlug($slugSource);
         });
     }
@@ -75,5 +76,17 @@ class Post extends Model
     {
         $locale = $locale ?? app()->getLocale();
         return $this->translations->where('locale', $locale)->first();
+    }
+
+    /**
+     * Get a translatable attribute for a given locale with en fallback.
+     */
+    public function getTranslatedAttribute(string $attribute, ?string $locale = null): string
+    {
+        $locale = $locale ?? app()->getLocale();
+        $value = $this->getTranslation($attribute, $locale, false)
+            ?: $this->getTranslation($attribute, 'en', false)
+            ?: '';
+        return (string) $value;
     }
 }

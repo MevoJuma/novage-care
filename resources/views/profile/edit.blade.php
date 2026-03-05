@@ -1,181 +1,62 @@
 <x-app-layout>
-    <nav class="pcoded-navbar">
-        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-        <div class="pcoded-inner-navbar main-menu">
-
-            <!-- Dashboard -->
-            <div class="pcoded-navigatio-lavel">Main</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li class="active">
-                    <a href="{{ route('admin.dashboard') }}">
-                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                        <span class="pcoded-mtext">Dashboard</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Elders Management -->
-            <div class="pcoded-navigatio-lavel">Elders Management</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li>
-                    <a href="{{ route('admin.elders.index') }}">
-                        <span class="pcoded-micon"><i class="ti-user"></i><b>E</b></span>
-                        <span class="pcoded-mtext">All Elders</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.elders.create') }}">
-                        <span class="pcoded-micon"><i class="ti-plus"></i><b>AE</b></span>
-                        <span class="pcoded-mtext">Add New Elder</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.elders.reports') }}">
-                        <span class="pcoded-micon"><i class="ti-bar-chart"></i><b>ER</b></span>
-                        <span class="pcoded-mtext">Health Reports</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Caregivers -->
-            <div class="pcoded-navigatio-lavel">Caregivers</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li>
-                    <a href="{{ route('admin.caregivers.index') }}">
-                        <span class="pcoded-micon"><i class="ti-id-badge"></i><b>CG</b></span>
-                        <span class="pcoded-mtext">All Caregivers</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.caregiver.assign') }}">
-                        <span class="pcoded-micon"><i class="ti-exchange-vertical"></i><b>AC</b></span>
-                        <span class="pcoded-mtext">Assign Caregivers</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.caregiver.performance') }}">
-                        <span class="pcoded-micon"><i class="ti-pulse"></i><b>PM</b></span>
-                        <span class="pcoded-mtext">Performance Metrics</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Appointments -->
-            <div class="pcoded-navigatio-lavel">Appointments</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li>
-                    <a href="{{ route('admin.appointments.upcoming') }}">
-                        <span class="pcoded-micon"><i class="ti-calendar"></i><b>UA</b></span>
-                        <span class="pcoded-mtext">Upcoming Appointments</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.appointments.history') }}">
-                        <span class="pcoded-micon"><i class="ti-time"></i><b>AH</b></span>
-                        <span class="pcoded-mtext">Appointment History</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.appointments.create') }}">
-                        <span class="pcoded-micon"><i class="ti-plus"></i><b>NA</b></span>
-                        <span class="pcoded-mtext">Schedule New</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Wellness Monitoring -->
-            <div class="pcoded-navigatio-lavel">Wellness</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li>
-                    <a href="{{ route('admin.wellness.checkins') }}">
-                        <span class="pcoded-micon"><i class="ti-check-box"></i><b>WC</b></span>
-                        <span class="pcoded-mtext">Daily Check-ins</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.wellness.alerts') }}">
-                        <span class="pcoded-micon"><i class="ti-alert"></i><b>AL</b></span>
-                        <span class="pcoded-mtext">Alerts</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Reports -->
-            <div class="pcoded-navigatio-lavel">Reports & Settings</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li>
-                    <a href="{{ route('admin.reports.index') }}">
-                        <span class="pcoded-micon"><i class="ti-clipboard"></i><b>RP</b></span>
-                        <span class="pcoded-mtext">Reports</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.settings.profile') }}">
-                        <span class="pcoded-micon"><i class="ti-settings"></i><b>ST</b></span>
-                        <span class="pcoded-mtext">Settings</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Logout -->
-            <ul class="pcoded-item pcoded-left-item">
-                <li>
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <span class="pcoded-micon"><i class="ti-power-off"></i><b>L</b></span>
-                        <span class="pcoded-mtext">Logout</span>
-                        <span class="pcoded-mcaret"></span>
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-
-
-
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div>
-                    @include('profile.partials.update-profile-information-form')
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-header mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h4 class="mb-1">Profile</h4>
+                                <span class="text-muted">Manage your account settings</span>
+                            </div>
+                            <div>
+                                @if(Auth::check() && Auth::user()->role === 'elder')
+                                    <a href="{{ route('elder.dashboard') }}" class="btn btn-sm btn-outline-secondary">
+                                        <i class="ti-arrow-left"></i> Back to Dashboard
+                                    </a>
+                                @else
+                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-sm btn-outline-secondary">
+                                        <i class="ti-arrow-left"></i> Back to Dashboard
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div>
-                    @include('profile.partials.update-password-form')
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="ti-user me-2"></i>Profile Information</h5>
+                            </div>
+                            <div class="card-block">
+                                @include('profile.partials.update-profile-information-form')
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div>
-                    @include('profile.partials.delete-user-form')
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="ti-lock me-2"></i>Update Password</h5>
+                            </div>
+                            <div class="card-block">
+                                @include('profile.partials.update-password-form')
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+            
             </div>
         </div>
     </div>
+
+    <style>
+        .btn-brand { background: #066d44; color: #fff; border: none; border-radius: 6px; }
+        .btn-brand:hover { background: #055a38; color: #fff; }
+    </style>
 </x-app-layout>

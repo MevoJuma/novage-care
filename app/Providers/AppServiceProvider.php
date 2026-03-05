@@ -14,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // When domain points at project root (e.g. public_html with merged public/ contents),
+        // tell Laravel the "public" path is the same as the app root so storage:link and assets work.
+        if (config('app.public_path_is_root')) {
+            $this->app->usePublicPath(base_path());
+        }
     }
 
     /**

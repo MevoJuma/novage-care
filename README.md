@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Novage Care
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deployment on shared hosting (fixing HTTP 500 / storage views error)
 
-## About Laravel
+If you see an error like:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```
+file_put_contents(.../storage/framework/views/xxxxx.php): Failed to open stream: No such file or directory
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+or the path in the error is your **local machine path** (e.g. `/Users/ayo/...`) instead of the server path, do the following **on the server** (via SSH or your host’s file manager/terminal).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Remove cached config (fixes wrong path)
 
-## Learning Laravel
+Laravel may be using a config cache from your local machine. Clear it on the server:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+cd /path/to/your/site   # your real server path, e.g. /home/username/public_html
+php artisan config:clear
+php artisan view:clear
+php artisan cache:clear
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+If you can’t run Artisan, delete these files manually (if they exist):
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- `bootstrap/cache/config.php`
+- `bootstrap/cache/routes-v7.php` (or similar)
+- `bootstrap/cache/services.php`
 
-## Laravel Sponsors
+Then reload the site.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Ensure storage directories exist and are writable
 
-### Premium Partners
+Create the framework subdirs if missing and make them writable by the web server:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+mkdir -p storage/framework/views
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/cache/data
+mkdir -p storage/logs
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+```
 
-## Contributing
+On some hosts the web server user is different; if 775 isn’t enough, try:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+chmod -R 777 storage
+chmod -R 777 bootstrap/cache
+```
 
-## Code of Conduct
+Use 777 only if needed and only on shared hosting where you can’t set the owner.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. After deploying, never use cached config from your machine
 
-## Security Vulnerabilities
+- Do **not** upload `bootstrap/cache/config.php` (or other cache files) from your computer to the server.
+- If you run `php artisan config:cache` or `php artisan route:cache`, run them **on the server** after deploy, not locally.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Quick checklist on the server
 
-## License
+1. `php artisan config:clear` (and view:clear, cache:clear).
+2. Remove `bootstrap/cache/config.php` if it exists.
+3. Create `storage/framework/views` (and siblings above) if missing.
+4. `chmod -R 775 storage bootstrap/cache` (or 777 if required by your host).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+After this, the 500 error related to `storage/framework/views` and wrong paths should be resolved.
+
+---
+
+## Blog images not showing (no SSH)
+
+Images are stored in `storage/app/public`. They need to be reachable at `/storage/...` on your site.
+
+### When your domain points at the project root (e.g. public_html with merged `public/` contents)
+
+Laravel normally expects the web root to be the `public/` folder, so `storage:link` creates `public/storage`. If your document root is the project root (e.g. you copied `public/` contents into `public_html`), that symlink ends up in the wrong place and images don’t load.
+
+1. **On the server**, in `.env`, add:
+   ```env
+   PUBLIC_PATH_IS_ROOT=true
+   ```
+2. **Clear config and run setup again**  
+   Visit: `https://your-site.com/setup-storage-link`  
+   This clears config cache (so the new setting is used) and recreates the storage link at the document root (`public_html/storage` → `storage/app/public`). Blog images should then work.
+3. **Optional:** Remove the wrong symlink if it exists: delete the folder `public_html/public/storage` (or the `public` folder if it only contained `storage`).
+
+### Other setups
+
+1. **Create the link via browser**  
+   Visit: `https://your-site.com/setup-storage-link`. If it says the storage link was created, you can remove the `/setup-storage-link` route from `routes/web.php`.
+
+2. **If your host disables symlinks**  
+   The fallback route in `web.php` serves files from `storage/app/public` for `/storage/...`, so blog images still work. You can leave that route in place.

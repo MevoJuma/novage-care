@@ -80,6 +80,7 @@
 
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
+                    @include('layouts.aside')
                     {{ $slot }}
                 </div>
             </div>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
@@ -14,18 +16,24 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
-        $popularPosts = Post::orderBy('created_at', 'desc')->take(3)->get();
+        $query = request()->input('query');
+        $posts = Post::withCount('comments')
+            ->when($query, function ($q) use ($query) {
+                $q->where('title', 'like', '%' . $query . '%')
+                    ->orWhere('content', 'like', '%' . $query . '%');
+            })
+            ->latest()
+            ->paginate(10);
+
+        $popularPosts = Post::withCount('comments')
+            ->latest()
+            ->take(5)
+            ->get();
+
         $categories = \App\Models\Category::withCount('posts')
             ->orderBy('posts_count', 'desc')
             ->take(5)
             ->get();
-
-        $query = request()->input('query');
-        $posts = Post::where('title', 'like', '%' . $query . '%')
-            ->orWhere('content', 'like', '%' . $query . '%')
-            ->latest()
-            ->paginate(10);
 
         return view('blog', compact('posts', 'popularPosts', 'query', 'categories'));
     }
@@ -39,6 +47,23 @@ class PostController extends Controller
     }
 
     /**
+     * Display a listing of posts (admin).
+     */
+    public function indexForAdmin()
+    {
+        $posts = Post::with('user')->withCount('comments')->latest()->paginate(15);
+        return view('admin.posts.index', compact('posts'));
+    }
+
+    /**
+     * Show the form for creating a new post (admin).
+     */
+    public function createForAdmin()
+    {
+        return view('admin.posts.create');
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(StorePostRequest $request)
@@ -48,7 +73,14 @@ class PostController extends Controller
         $imagePath = null;
         if ($request->hasFile('image')) {
             try {
-                $imagePath = $request->file('image')->store('blog_images', 'public');
+                $dir = public_path('blog_images');
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0755, true);
+                }
+                $file = $request->file('image');
+                $name = Str::random(40) . '.' . $file->getClientOriginalExtension();
+                $file->move($dir, $name);
+                $imagePath = $name;
             } catch (\Exception $e) {
                 return back()->withErrors(['image' => 'Image upload failed.']);
             }
@@ -56,14 +88,17 @@ class PostController extends Controller
 
         $post = new Post([
             'image' => $imagePath,
-            'title' => json_encode($validated['title']),
-            'content' => json_encode($validated['content']),
             'user_id' => $request->user()->id,
         ]);
 
+        foreach (['en', 'sw'] as $locale) {
+            $post->setTranslation('title', $locale, $validated['title'][$locale]);
+            $post->setTranslation('content', $locale, $validated['content'][$locale]);
+        }
+
         $post->save();
 
-        return redirect()->route('blog.index')->with('success', 'Blog post published!');
+        return redirect()->route('admin.posts.index')->with('success', 'Blog post published! It is now visible on the blog page.');
     }
 
     /**
@@ -77,27 +112,59 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource (admin).
      */
-    public function edit(Post $post)
+    public function edit(Request $request, Post $post)
     {
-        //
+        if (!$request->user()->hasRole('admin')) {
+            abort(403);
+        }
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage (admin).
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->hasFile('image')) {
+            try {
+                $dir = public_path('blog_images');
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0755, true);
+                }
+                $file = $request->file('image');
+                $name = Str::random(40) . '.' . $file->getClientOriginalExtension();
+                $file->move($dir, $name);
+                $post->image = $name;
+            } catch (\Exception $e) {
+                return back()->withErrors(['image' => 'Image upload failed.']);
+            }
+        }
+
+        foreach (['en', 'sw'] as $locale) {
+            $post->setTranslation('title', $locale, $validated['title'][$locale]);
+            $post->setTranslation('content', $locale, $validated['content'][$locale]);
+        }
+
+        $post->save();
+
+        return redirect()->route('admin.posts.index')->with('success', 'Post updated successfully.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage (admin).
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
-        //
+        if (!$request->user()->hasRole('admin')) {
+            abort(403);
+        }
+        $post->comments()->delete();
+        $post->delete();
+        return redirect()->route('admin.posts.index')->with('success', 'Post deleted successfully.');
     }
     /**
      * Search for posts by title.

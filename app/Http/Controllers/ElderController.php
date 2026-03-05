@@ -24,12 +24,20 @@ class ElderController extends Controller
         $medicationsDue = 'Aspirin 100mg - 1 tablet daily';
         $newMessages = 3;
 
+        // Assigned caregiver (null until assignment feature is implemented)
+        $caregivers = null;
+
+        // Recent appointments for the elder
+        $appointments = $user->appointments()->orderBy('date')->orderBy('time')->take(10)->get();
+
         return view('elder.dashboard', compact(
             'user',
             'mood',
             'nextAppointment',
             'medicationsDue',
-            'newMessages'
+            'newMessages',
+            'caregivers',
+            'appointments'
         ));
     }
 

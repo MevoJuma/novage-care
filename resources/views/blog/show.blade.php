@@ -1,16 +1,28 @@
 @extends('layouts.landing')
 
-@section('title', $post->title . ' - Novage Care')
+@php
+    $postTitle = $post->getTranslatedAttribute('title') ?: __('Untitled');
+    $postContent = $post->getTranslatedAttribute('content');
+    $commentsCount = $post->comments->count();
+@endphp
+
+@section('title', $postTitle . ' - Novage Care')
 
 @section('content')
+
 <section class="page-title bg-1">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="block">
-                    <h1 class="text-capitalize mb-5 text-lg">{{ $post->title }}</h1>
+                    <h1 class="text-capitalize mb-5 text-lg text-white">{{ $postTitle }}</h1>
                     <span class="text-white">Blog Details</span>
+                    @if (app()->getLocale() === 'sw')
+                        <p class="text-white-50 mb-0 small mt-2"><a href="{{ url('locale/en') }}" class="text-white text-underline">English</a></p>
+                    @else
+                        <p class="text-white-50 mb-0 small mt-2"></p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -20,27 +32,32 @@
 <section class="section blog-wrap">
     <div class="container" style="max-width: 1000px">
         <div class="row">
-            <!-- Blog Content -->
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col-lg-12 mb-5">
                         <div class="single-blog-item">
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded shadow mb-4">
+                            @if ($post->image)
+                                <img src="{{ asset('blog_images/' . basename($post->image)) }}" alt="{{ $postTitle }}" class="img-fluid rounded shadow mb-4" style="width: 100%; object-fit: cover;">
+                            @else
+                                <div class="bg-light rounded shadow-sm mb-4 d-flex align-items-center justify-content-center" style="height: 280px;">
+                                    <i class="icofont-newspaper text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            @endif
                             <div class="blog-item-content mt-4">
                                 <div class="blog-item-meta mb-3">
                                     <span class="text-muted mr-3">
                                         <i class="icofont-calendar mr-1"></i>{{ $post->created_at->format('M d, Y') }}
                                     </span>
                                     <span class="text-muted">
-                                        <i class="icofont-comment mr-1"></i>{{ $post->comments->count() }} Comments
+                                        <i class="icofont-comment mr-1"></i>{{ $commentsCount }} {{ $commentsCount === 1 ? 'Comment' : 'Comments' }}
                                     </span>
                                 </div>
 
-                                <h2 class="mb-4">{{ $post->title }}</h2>
+                                <h2 class="mb-4">{{ $postTitle }}</h2>
 
-                                <p class="lead" style="line-height: 1.8;">
-                                    {!! nl2br(e($post->content)) !!}
-                                </p>
+                                <div class="lead blog-content" style="line-height: 1.8;">
+                                    {!! $postContent !!}
+                                </div>
 
                                 <div class="social-share mt-5 clearfix">
                                     <ul class="list-inline float-left">
@@ -54,22 +71,17 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Comments Section -->
-                    <div class="col-lg-12">
-                    </div>
                 </div>
             </div>
 
-            <!-- Sidebar -->
             <div class="col-lg-4">
                 <div class="col-lg-12">
                     <div class="comment-area mt-4 mb-5">
-                        <h4 class="mb-4">{{ $post->comments->count() }} Comments</h4>
+                        <h4 class="mb-4">{{ $commentsCount }} {{ $commentsCount === 1 ? 'Comment' : 'Comments' }}</h4>
 
                         @foreach ($post->comments as $comment)
                             <div class="media mb-4">
-                                <img src="{{ asset('images/blog/user.jpg') }}" class="mr-3 rounded-circle border" alt="User" width="50" height="50">
+                                <img src="{{ asset('images/blog/user.jpg') }}" class="mr-3 rounded-circle border" alt="User" width="50" height="50" onerror="this.style.display='none'">
                                 <div class="media-body">
                                     <h6 class="mt-0 mb-1 font-weight-bold">{{ $comment->name }}</h6>
                                     <small class="text-muted d-block mb-1">{{ $comment->created_at->format('M d, Y') }}</small>
@@ -79,7 +91,6 @@
                         @endforeach
                     </div>
 
-                    <!-- Comment Form -->
                     <div class="comment-form bg-light p-4 rounded shadow-sm">
                         <h4 class="mb-3">Leave a Comment</h4>
                         <form action="{{ route('comments.store', $post->id) }}" method="POST">
