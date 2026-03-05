@@ -9,11 +9,7 @@
                     <div class="block text-center">
                         <span class="text-white">Our blog</span>
                         <h1 class="text-capitalize mb-5 text-lg text-white">Blog articles</h1>
-                        @if (app()->getLocale() === 'sw')
-                            <p class="text-white-50 mb-0 small">Inaonyesha kwa Kiswahili. <a href="{{ url('locale/en') }}" class="text-white text-underline">English</a></p>
-                        @else
-                            <p class="text-white-50 mb-0 small">Viewing in English. </p>
-                        @endif
+                       
                     </div>
                 </div>
             </div>

@@ -2,7 +2,9 @@
 
 @php
     $postTitle = $post->getTranslatedAttribute('title') ?: __('Untitled');
-    $postContent = $post->getTranslatedAttribute('content');
+    $rawContent = $post->getTranslatedAttribute('content');
+    // Display exactly as in the admin edit textarea: preserve newlines, escape HTML
+    $postContent = nl2br(e($rawContent));
     $commentsCount = $post->comments->count();
 @endphp
 
@@ -18,11 +20,7 @@
                 <div class="block">
                     <h1 class="text-capitalize mb-5 text-lg text-white">{{ $postTitle }}</h1>
                     <span class="text-white">Blog Details</span>
-                    @if (app()->getLocale() === 'sw')
-                        <p class="text-white-50 mb-0 small mt-2"><a href="{{ url('locale/en') }}" class="text-white text-underline">English</a></p>
-                    @else
-                        <p class="text-white-50 mb-0 small mt-2"></p>
-                    @endif
+                
                 </div>
             </div>
         </div>
@@ -55,7 +53,7 @@
 
                                 <h2 class="mb-4">{{ $postTitle }}</h2>
 
-                                <div class="lead blog-content" style="line-height: 1.8;">
+                                <div class="lead blog-content blog-content-formatted" style="line-height: 1.8;">
                                     {!! $postContent !!}
                                 </div>
 
@@ -117,4 +115,63 @@
         </div>
     </div>
 </section>
+
+@push('styles')
+<style>
+/* Preserve pasted structure: lists, headings, paragraphs */
+.blog-content-formatted {
+    white-space: normal;
+}
+.blog-content-formatted p {
+    margin-bottom: 1rem;
+}
+.blog-content-formatted p:last-child {
+    margin-bottom: 0;
+}
+.blog-content-formatted ul,
+.blog-content-formatted ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.blog-content-formatted ul {
+    list-style-type: disc;
+}
+.blog-content-formatted ol {
+    list-style-type: decimal;
+}
+.blog-content-formatted li {
+    margin-bottom: 0.35rem;
+}
+.blog-content-formatted li::marker {
+    color: inherit;
+}
+.blog-content-formatted h1,
+.blog-content-formatted h2,
+.blog-content-formatted h3,
+.blog-content-formatted h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.blog-content-formatted h1 { font-size: 1.75rem; }
+.blog-content-formatted h2 { font-size: 1.5rem; }
+.blog-content-formatted h3 { font-size: 1.25rem; }
+.blog-content-formatted h4 { font-size: 1.1rem; }
+.blog-content-formatted h1:first-child,
+.blog-content-formatted h2:first-child,
+.blog-content-formatted h3:first-child,
+.blog-content-formatted h4:first-child {
+    margin-top: 0;
+}
+.blog-content-formatted strong { font-weight: 600; }
+.blog-content-formatted em { font-style: italic; }
+.blog-content-formatted blockquote {
+    margin: 1rem 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 4px solid #066d44;
+    color: #555;
+}
+</style>
+@endpush
 @endsection
